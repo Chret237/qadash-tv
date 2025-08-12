@@ -1,115 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
 
     <!-- font awesome file link  -->
-    <link rel="stylesheet" href="fontawesome-free-6.7.2-web/css/all.css">
+    <link rel="stylesheet" href="fontawesome-free-6.7.2-web/css/all.css" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
 
     <title>Qadash TV</title>
-</head>
-<body>
+  </head>
+  <body>
     <header class="nav-bar">
-        <div class="logo">
-            <img src="" alt="" srcset="">
-        </div>
-        <div class="nav-menu">
-            <a href="#accueil" class="active">
-                Accueil
-            </a>
-            <a href="#documentaires">
-                Documentaires
-            </a>
-            <a href="#enseignements">
-                Enseignements
-            </a>
-            <a href="#livres">
-                Livres
-            </a>
-            <a href="#animations">
-                Animations
-            </a>
-            <a href="#contacts">
-                Contacts
-            </a>
-        </div>
-        <div class="language">
-            Langue :
-            <select name="" id="">
-                <option value="">
-                    Français
-                </option>
-                <option value="">
-                    Anglais
-                </option>
-            </select>
-        </div>
+      <div class="logo">
+        <img src="" alt="" srcset="" />
+      </div>
+      <nav class="nav-menu">
+        <a href="#accueil" class="active"> Accueil </a>
+        <a href="#documentaires"> Documentaires </a>
+        <a href="#enseignements"> Enseignements </a>
+        <a href="#livres"> Livres </a>
+        <a href="#animations"> Animations </a>
+        <a href="#contacts"> Contacts </a>
+      </nav>
+      <div class="language">
+        Langue :
+        <select name="" id="">
+          <option value="">Français</option>
+          <option value="">Anglais</option>
+        </select>
+      </div>
     </header>
 
-    <main>
-        <section>
-            <p>
-                Sortez d'elle mon peuple...
-            </p>
-            <div>
-                <span>
-                    Apocalypse 18:4
-                </span>
-                <h1 class="title-1">
-                    QADASH TV
-                </h1>
-                <hr>
-                <p class="subtitle">
-                    Donner de la visibilité aux actions que le Seigneur Yéhoshoua ha Mashiah (Jesus-Christ) a mis dans le cœur de ses enfants pour que l'Evangile soit davantage annoncé au Cameroun.
-                </p>
+    <main id="container">
+      <section id="s1" class="section active">
+        <p>Sortez d'elle mon peuple...</p>
+        <div>
+          <span> Apocalypse 18:4 </span>
+          <h1 class="title-1">QADASH TV</h1>
+          <hr />
+          <p class="subtitle">
+            Donner de la visibilité aux actions que le Seigneur Yéhoshoua ha
+            Mashiah (Jesus-Christ) a mis dans le cœur de ses enfants pour que
+            l'Evangile soit davantage annoncé au Cameroun.
+          </p>
+        </div>
+        <div id="prev" class="fas fa-chevron-left"></div>
+        <div id="next" class="fas fa-chevron-right"></div>
+        <div class="scroll-indicator">
+          <div class="scroll-indicator-content">
+            <span class="scroll-text">Faites défiler pour explorer</span>
+            <div class="mouse-shape">
+              <div class="mouse-wheel"></div>
             </div>
-            <div id="prev" class="fas fa-chevron-left"></div>
-            <div id="next" class="fas fa-chevron-right"></div>
-        </section>
-        <section>
-            <h2 class="title-2">
-                Action Sociales
-            </h2>
-            <div id="prev" class="fas fa-chevron-left">
-
-            </div>
-            <div id="next" class="fas fa-chevron-right">
-
-            </div>
-        </section>
-        <section>
-            <h2 class="title-2">
-                Rencontre jeunesse
-            </h2>
-            <div id="prev" class="fas fa-chevron-left">
-
-            </div>
-            <div id="next" class="fas fa-chevron-right">
-
-            </div>
-        </section>
-        <section>
-            <h2 class="title-2">
-                Programme des femmes
-            </h2>
-            <div id="prev" class="fas fa-chevron-left">
-
-            </div>
-            <div id="next" class="fas fa-chevron-right">
-
-            </div>
-        </section>
+          </div>
+        </div>
+      </section>
+      <section id="s2" class="section">
+        <h2 class="title-2">Action Sociales</h2>
+        <div id="prev" class="fas fa-chevron-left"></div>
+        <div id="next" class="fas fa-chevron-right"></div>
+      </section>
+      <section id="s3" class="section">
+        <h2 class="title-2">Rencontre jeunesse</h2>
+        <div id="prev" class="fas fa-chevron-left"></div>
+        <div id="next" class="fas fa-chevron-right"></div>
+      </section>
+      <section id="s4" class="section">
+        <h2 class="title-2">Programme des femmes</h2>
+        <div id="prev" class="fas fa-chevron-left"></div>
+        <div id="next" class="fas fa-chevron-right"></div>
+      </section>
     </main>
 
-    <footer>
+    <footer></footer>
 
-    </footer>
-    
-</body>
+    <script src="main.js"></script>
+  </body>
 </html>

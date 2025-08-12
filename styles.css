@@ -3,124 +3,140 @@
     padding: 0;
     box-sizing: border-box;
 
-/* .poppins-thin */
+    /* .poppins-thin */
     /* font-family: "Poppins", sans-serif;
     font-weight: 100;
     font-style: normal; */
 
-/* .poppins-extralight */
+    /* .poppins-extralight */
     /* font-family: "Poppins", sans-serif;
     font-weight: 200;
     font-style: normal; */
 
-/* .poppins-light */
+    /* .poppins-light */
     /* font-family: "Poppins", sans-serif;
     font-weight: 300;
     font-style: normal; */
 
-/* .poppins-regular */
+    /* .poppins-regular */
     font-family: "Poppins", sans-serif;
     font-weight: 400;
     font-style: normal;
 
-/* .poppins-medium */
+    /* .poppins-medium */
     /* font-family: "Poppins", sans-serif;
     font-weight: 500;
     font-style: normal; */
 
-/* .poppins-semibold */
+    /* .poppins-semibold */
     /* font-family: "Poppins", sans-serif;
     font-weight: 600;
     font-style: normal; */
 
-/* .poppins-bold */
+    /* .poppins-bold */
     /* font-family: "Poppins", sans-serif;
     font-weight: 700;
     font-style: normal; */
 
-/* .poppins-extrabold */
+    /* .poppins-extrabold */
     /* font-family: "Poppins", sans-serif;
     font-weight: 800;
     font-style: normal; */
 
-/* .poppins-black */
+    /* .poppins-black */
     /* font-family: "Poppins", sans-serif;
     font-weight: 900;
     font-style: normal; */
 
-/* .poppins-thin-italic */
+    /* .poppins-thin-italic */
     /* font-family: "Poppins", sans-serif;
     font-weight: 100;
     font-style: italic; */
 
-/* .poppins-extralight-italic */
+    /* .poppins-extralight-italic */
     /* font-family: "Poppins", sans-serif;
     font-weight: 200;
     font-style: italic; */
 
-/* .poppins-light-italic */
+    /* .poppins-light-italic */
     /* font-family: "Poppins", sans-serif;
     font-weight: 300;
     font-style: italic; */
 
-/* .poppins-regular-italic */
+    /* .poppins-regular-italic */
     /* font-family: "Poppins", sans-serif;
     font-weight: 400;
     font-style: italic; */
 
-/* .poppins-medium-italic */
+    /* .poppins-medium-italic */
     /* font-family: "Poppins", sans-serif;
     font-weight: 500;
     font-style: italic; */
 
-/* .poppins-semibold-italic */
+    /* .poppins-semibold-italic */
     /* font-family: "Poppins", sans-serif;
     font-weight: 600;
     font-style: italic; */
 
-/* .poppins-bold-italic */
+    /* .poppins-bold-italic */
     /* font-family: "Poppins", sans-serif;
     font-weight: 700;
     font-style: italic; */
 
-/* .poppins-extrabold-italic */
+    /* .poppins-extrabold-italic */
     /* font-family: "Poppins", sans-serif;
     font-weight: 800;
     font-style: italic; */
 
-/* .poppins-black-italic */
+    /* .poppins-black-italic */
     /* font-family: "Poppins", sans-serif;
     font-weight: 900;
     font-style: italic; */
 }
-h1, h2 {
+
+html,
+body {
+    height: 100%;
+    overflow: hidden;
+    /* background: black; */
+}
+
+h1,
+h2 {
     font-family: "Poppins", sans-serif;
     font-weight: 700;
     font-style: normal;
 }
+
 .nav-bar {
-    display: flex;
-    height: 80px;
-    width: 100%;
-    justify-content: space-between;
-    font-size: 20px;
-    border-bottom: 1px solid #cccc;
     position: fixed;
     top: 0;
-    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding-right: 15px;
+    height: 80px;
+    width: 100%;
+    font-size: 20px;
+    border-bottom: 1px solid #cccc;
+    z-index: 10;
     background-color: #fff;
+    backdrop-filter: blur(8px);
 }
+
 .logo {
     background-color: #0086a9;
     height: 100%;
     width: 15%;
 }
+
 .nav-menu {
     width: 90%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
 }
+
 .nav-menu a {
     text-decoration: none;
     color: #000;
@@ -134,25 +150,30 @@ h1, h2 {
     text-transform: uppercase;
     font-size: 1rem;
 }
+
 .nav-menu a:last-child {
     color: #cd7b03;
     font-weight: 600;
 }
+
 .nav-menu a:hover {
     background-color: #cd7b03;
     color: #fff;
 }
+
 a.active {
     background-color: #cd7b03;
     color: #fff;
 }
+
 .language {
     width: 15%;
     display: flex;
     align-items: center;
-    /* justify-content: center; */
+    justify-content: center;
     font-size: 1rem;
 }
+
 .language select {
     width: 50%;
     height: 50%;
@@ -163,22 +184,51 @@ a.active {
     /* margin-left: 5px; */
     border: none;
 }
+
 .language select option:hover {
     /* background-color: #0086a9; */
     cursor: pointer;
 }
-main section{
-    text-align: center;
+
+#container {
     position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+main section {
+    text-align: center;
     padding: 30px 0 50px;
     height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    font-size: 2.5rem;
+    opacity: 0;
+    transform: scale(1.05);
+    transition: opacity 1s ease, transform 1s ease;
 }
-main section:first-child, section:nth-child(3) {
+
+.section.active {
+    opacity: 1;
+    transform: scale(1);
+    z-index: 1;
+}
+
+main section:first-child,
+section:nth-child(3) {
     background-color: #f0f0f0;
 }
-main section:nth-child(2), section:nth-child(4) {
+
+main section:nth-child(2),
+section:nth-child(4) {
     background-color: #fff;
 }
+
 main section:nth-child(2),
 section:nth-child(3),
 section:nth-child(4) {
@@ -186,11 +236,14 @@ section:nth-child(4) {
     align-items: center;
     justify-content: center;
 }
+
 main section:first-child p:first-child {
     margin-top: calc(22vh - 80px);
-    margin-bottom: 150px;
+    margin-bottom: 100px;
     letter-spacing: 10px;
+    font-size: medium;
 }
+
 /* main section:first-child div:first-child img {
     width: 100%;
     height: 100%;
@@ -202,24 +255,33 @@ main section:first-child span {
     font-weight: 500;
     font-style: normal;
 }
+
 .title-1 {
-    font-size: 3rem;
+    font-size: 4rem;
 }
+
 main section:first-child hr {
     width: 130px;
     margin: 5px auto 50px;
     border: 1px solid #cd7b03;
 }
+
 .subtitle {
     width: 900px;
     margin: 0 auto 50px;
     font-size: 20px;
 }
-#prev {left: 2rem;}
 
-#next {right: 2rem;}
+#prev {
+    left: 2rem;
+}
 
-#prev, #next {
+#next {
+    right: 2rem;
+}
+
+#prev,
+#next {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -234,8 +296,85 @@ main section:first-child hr {
     cursor: pointer;
     text-align: center;
 }
+
 #prev:hover,
 #next:hover {
     color: #fff;
     background: #cd7b03;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 1rem;
+    /* Tailwind's bottom-8 */
+    left: 50%;
+    transform: translateX(-50%);
+    color: #cd7c03a8;
+}
+
+.scroll-indicator-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    /* Tailwind's gap-2 */
+    animation: bounce 1.5s infinite;
+}
+
+.scroll-text {
+    font-size: 0.875rem;
+    /* Tailwind's text-sm */
+}
+
+/* Mouse outline shape */
+.mouse-shape {
+    width: 1.5rem;
+    /* 6 * 0.25rem */
+    height: 2.5rem;
+    /* 10 * 0.25rem */
+    border: 2px solid #cd7c03a8;
+    border-radius: 9999px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Inner "wheel" */
+.mouse-wheel {
+    width: 0.25rem;
+    /* 1 * 0.25rem */
+    height: 0.75rem;
+    /* 3 * 0.25rem */
+    background-color: #cd7c03a8;
+    border-radius: 9999px;
+    margin-top: 0.5rem;
+    /* Tailwind's mt-2 */
+    animation: pulse 1.2s infinite;
+}
+
+/* Bounce animation (like Tailwind's animate-bounce) */
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Pulse animation (like Tailwind's animate-pulse) */
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    50% {
+        opacity: 0.5;
+        transform: translateY(4px);
+    }
 }
