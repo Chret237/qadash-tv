@@ -49,7 +49,35 @@ window.addEventListener("touchend", (e) => {
 // Navigation via clics
 // navLinks.forEach((link, i) => {
 //   link.addEventListener("click", (e) => {
-//     e.preventDefault();
+//     e#preventDefault();
 //     if (!isScrolling) showSection(i);
 //   });
 // });
+
+document.querySelectorAll(".section").forEach((section) => {
+  let slides = section.querySelectorAll(".slide-container");
+  let index = 0;
+
+  function showSlide(newIndex) {
+    slides[index].classList.remove("active");
+    index = (newIndex + slides.length) % slides.length;
+    slides[index].classList.add("active");
+  }
+
+  // Bouton suivant
+  section.querySelector("#next").addEventListener("click", () => {
+    showSlide(index + 1);
+  });
+
+  // Bouton précédent
+  section.querySelector("#prev").addEventListener("click", () => {
+    showSlide(index - 1);
+  });
+
+  // Défilement automatique toutes les 3 secondes
+  setInterval(() => {
+    showSlide(index + 1);
+  }, 3000); // 3000 ms = 3 secondes
+});
+
+
