@@ -96,9 +96,9 @@
 
 html,
 body {
-    height: 100%;
+    height: 100vh;
     overflow: hidden;
-    /* background: black; */
+    scroll-behavior: smooth;
 }
 
 h1,
@@ -113,25 +113,29 @@ h2 {
     top: 0;
     display: flex;
     justify-content: center;
-    gap: 20px;
-    padding-right: 15px;
-    height: 80px;
+    gap: 1.3rem;
+    height: 79px;
     width: 100%;
-    font-size: 20px;
-    border-bottom: 1px solid #cccc;
+    font-size: 1.3rem;
     z-index: 10;
-    background-color: #fff;
-    backdrop-filter: blur(8px);
+    background-color: #127484;
+    color: #fff;
 }
 
 .logo {
-    background-color: #0086a9;
-    height: 100%;
+    height: auto;
     width: 15%;
+    align-content: center;
+}
+
+.logo img {
+    width: 100%;
+    display: block;
+    object-fit: contain;
 }
 
 .nav-menu {
-    width: 90%;
+    width: 70%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -139,30 +143,30 @@ h2 {
 
 .nav-menu a {
     text-decoration: none;
-    color: #000;
-    padding: 20px;
+    color: inherit;
+    padding: 1.3rem;
     height: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 20px;
-    border: 1px solid #cd7b03;
+    border-radius: 1.3rem;
+    border: 1px solid #DE8717;
     text-transform: uppercase;
     font-size: 1rem;
 }
 
 .nav-menu a:last-child {
-    color: #cd7b03;
+    color: #DE8717;
     font-weight: 600;
 }
 
 .nav-menu a:hover {
-    background-color: #cd7b03;
+    background-color: #DE8717;
     color: #fff;
 }
 
 a.active {
-    background-color: #cd7b03;
+    background-color: #DE8717;
     color: #fff;
 }
 
@@ -177,39 +181,47 @@ a.active {
 .language select {
     width: 50%;
     height: 50%;
-    color: #000;
     text-align: center;
     outline: none;
     cursor: pointer;
-    /* margin-left: 5px; */
     border: none;
+    background-color: transparent;
+    color: inherit;
+    font-size: 1rem;
 }
 
-.language select option:hover {
-    /* background-color: #0086a9; */
-    cursor: pointer;
+.language select option {
+    background-color: #127484;
+    font-size: 1rem;
 }
+
+/* Custom dropdown arrow for select */
+/* .language select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,<svg width='16' height='16' fill='white' xmlns='http://www.w3.org/2000/svg'><path d='M4 6l4 4 4-4' stroke='%23DE8717' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 1.2em;
+    padding-right: 2.5em;
+} */
 
 #container {
     position: relative;
-    height: 100%;
     width: 100%;
 }
 
 main section {
     text-align: center;
-    /* padding: 30px 0 50px; */
     height: 100vh;
     position: absolute;
     top: 0;
     left: 0;
     width: 100vw;
-    /* display: flex;
-    align-items: center;
-    justify-content: center; */
     font-size: 2.5rem;
     opacity: 0;
-    transform: scale(1.05);
+    transform: scale(1);
     transition: opacity 1s ease, transform 1s ease;
 }
 
@@ -261,62 +273,62 @@ section:nth-child(4) {
 
 .section:nth-child(1) .slide-container:nth-child(1) .slide {
     background:
-        linear-gradient(to right, #202020, #0001), bottom / cover no-repeat url("../images/microsoft-discontinues-lackadaisically-updated-surface-v0-t1ncDUs2nLEgxn9UsGxu3eYn6WM6JGwDXI6TEDvn4Sw.webp");
+        linear-gradient(to right, #121212, #0001), bottom / cover no-repeat url("../images/microsoft-discontinues-lackadaisically-updated-surface-v0-t1ncDUs2nLEgxn9UsGxu3eYn6WM6JGwDXI6TEDvn4Sw.webp");
 }
 
 .section:nth-child(1) .slide-container:nth-child(2) .slide {
     background:
-        linear-gradient(to right, #202020, #0001), bottom / cover no-repeat url("../images/Microsoft-Surface-Laptop-Studio.jpg");
+        linear-gradient(to right, #121212, #0001), bottom / cover no-repeat url("../images/Microsoft-Surface-Laptop-Studio.jpg");
 }
 
 .section:nth-child(1) .slide-container:nth-child(3) .slide {
     background:
-        linear-gradient(to right, #202020, #0001), bottom / cover no-repeat url("../images/");
+        linear-gradient(to right, #121212, #0001), bottom / cover no-repeat url("./images/IMG-20250703-WA0060~01.jpg");
 }
 
 .section:nth-child(2) .slide-container:nth-child(1) .slide {
     background:
-        linear-gradient(to right, #202020, #0001), bottom / cover no-repeat url("../images/microsoft-discontinues-lackadaisically-updated-surface-v0-t1ncDUs2nLEgxn9UsGxu3eYn6WM6JGwDXI6TEDvn4Sw.webp");
+        linear-gradient(to right, #121212, #0001), bottom / cover no-repeat url("../images/microsoft-discontinues-lackadaisically-updated-surface-v0-t1ncDUs2nLEgxn9UsGxu3eYn6WM6JGwDXI6TEDvn4Sw.webp");
 }
 
 .section:nth-child(2) .slide-container:nth-child(2) .slide {
     background:
-        linear-gradient(to right, #202020, #0001), bottom / cover no-repeat url("../images/Microsoft-Surface-Laptop-Studio.jpg");
+        linear-gradient(to right, #121212, #0001), bottom / cover no-repeat url("../images/Microsoft-Surface-Laptop-Studio.jpg");
 }
 
 .section:nth-child(2) .slide-container:nth-child(3) .slide {
     background:
-        linear-gradient(to right, #202020, #0001), bottom / cover no-repeat url("../images/");
+        linear-gradient(to right, #121212, #0001), bottom / cover no-repeat url("../images/");
 }
 
 .section:nth-child(3) .slide-container:nth-child(1) .slide {
     background:
-        linear-gradient(to right, #202020, #0001), bottom / cover no-repeat url("../images/microsoft-discontinues-lackadaisically-updated-surface-v0-t1ncDUs2nLEgxn9UsGxu3eYn6WM6JGwDXI6TEDvn4Sw.webp");
+        linear-gradient(to right, #121212, #0001), bottom / cover no-repeat url("../images/microsoft-discontinues-lackadaisically-updated-surface-v0-t1ncDUs2nLEgxn9UsGxu3eYn6WM6JGwDXI6TEDvn4Sw.webp");
 }
 
 .section:nth-child(3) .slide-container:nth-child(2) .slide {
     background:
-        linear-gradient(to right, #202020, #0001), bottom / cover no-repeat url("../images/Microsoft-Surface-Laptop-Studio.jpg");
+        linear-gradient(to right, #121212, #0001), bottom / cover no-repeat url("../images/Microsoft-Surface-Laptop-Studio.jpg");
 }
 
 .section:nth-child(3) .slide-container:nth-child(3) .slide {
     background:
-        linear-gradient(to right, #202020, #0001), bottom / cover no-repeat url("../images/");
+        linear-gradient(to right, #121212, #0001), bottom / cover no-repeat url("../images/");
 }
 
 .section:last-of-type .slide-container:nth-child(1) .slide {
     background:
-        linear-gradient(to right, #202020, #0001), bottom / cover no-repeat url("../images/microsoft-discontinues-lackadaisically-updated-surface-v0-t1ncDUs2nLEgxn9UsGxu3eYn6WM6JGwDXI6TEDvn4Sw.webp");
+        linear-gradient(to right, #121212, #0001), bottom / cover no-repeat url("../images/microsoft-discontinues-lackadaisically-updated-surface-v0-t1ncDUs2nLEgxn9UsGxu3eYn6WM6JGwDXI6TEDvn4Sw.webp");
 }
 
 .section:last-of-type .slide-container:nth-child(2) .slide {
     background:
-        linear-gradient(to right, #202020, #0001), bottom / cover no-repeat url("../images/Microsoft-Surface-Laptop-Studio.jpg");
+        linear-gradient(to right, #121212, #0001), bottom / cover no-repeat url("../images/Microsoft-Surface-Laptop-Studio.jpg");
 }
 
 .section:last-of-type .slide-container:nth-child(3) .slide {
     background:
-        linear-gradient(to right, #202020, #0001), bottom / cover no-repeat url("../images/");
+        linear-gradient(to right, #121212, #0001), bottom / cover no-repeat url("../images/");
 }
 
 .section .slide-container .slide .content {
@@ -326,43 +338,43 @@ section:nth-child(4) {
     padding: 10px;
 }
 
-.section p:first-child {
+.section:first-child p:first-child {
     margin-top: 10px;
-    margin-bottom: 100px;
+    margin-bottom: 90px;
     letter-spacing: 10px;
     font-size: medium;
 }
 
-.section span {
+.section:first-child span {
     font-size: 1.2rem;
     font-family: "Poppins", sans-serif;
     font-weight: 500;
     font-style: normal;
 }
 
-.title-1 {
+.section:first-child h1 {
     font-size: 4rem;
 }
 
 .section:first-child hr {
-    width: 130px;
-    margin: 5px auto 50px;
-    border: 1px solid #cd7b03;
+    width: 13vw;
+    margin: 0.5rem auto 3rem;
+    border: 1px solid #DE8717;
 }
 
-.subtitle {
+.section:first-child .subtitle {
     width: 900px;
-    margin: 0 auto 50px;
+    margin: 0 auto 2.5em;
     font-size: 20px;
 }
 
 .scroll-indicator {
     position: absolute;
-    bottom: 6rem;
+    bottom: 8rem;
     /* Tailwind's bottom-8 */
     left: 50%;
     transform: translateX(-50%);
-    color: #cd7c03a8;
+    color: #DE8717;
 }
 
 .scroll-indicator-content {
@@ -385,7 +397,7 @@ section:nth-child(4) {
     /* 6 * 0.25rem */
     height: 2.5rem;
     /* 10 * 0.25rem */
-    border: 2px solid #cd7c03a8;
+    border: 2px solid #DE8717;
     border-radius: 9999px;
     display: flex;
     justify-content: center;
@@ -397,7 +409,7 @@ section:nth-child(4) {
     /* 1 * 0.25rem */
     height: 0.75rem;
     /* 3 * 0.25rem */
-    background-color: #cd7c03a8;
+    background-color: #DE8717;
     border-radius: 9999px;
     margin-top: 0.5rem;
     /* Tailwind's mt-2 */
@@ -447,12 +459,12 @@ section:nth-child(4) {
     transform: translateY(-50%);
     border-radius: 50%;
     z-index: 100;
-    height: 5rem;
-    width: 5rem;
-    line-height: 4.5rem;
+    height: 3.5rem;
+    width: 3.5rem;
+    line-height: 3.2rem;
     font-size: 2rem;
-    color: #cd7b03;
-    border: .2rem solid #cd7b03;
+    color: #DE8717;
+    border: .2rem solid #DE8717;
     cursor: pointer;
     text-align: center;
 }
@@ -460,5 +472,193 @@ section:nth-child(4) {
 #prev:hover,
 #next:hover {
     color: #fff;
-    background: #cd7b03;
+    background: #DE8717;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    z-index: 10;
+    background-color: #DE8717;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: .2em 1em;
+    font-size: 15px;
+}
+footer p {
+    font-weight: 500;
+}
+footer a {
+    text-decoration: none;
+    color: inherit;
+    margin-left: .5em;
+    cursor: pointer;
+}
+
+/* ================================
+   MEDIA QUERIES ADAPTÉES
+================================ */
+
+/* Tablettes (≤1024px) */
+@media (max-width: 1124px) {
+    .nav-bar {
+        height: 70px;
+        font-size: 1.1rem;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .logo {
+        width: 20%;
+    }
+
+    .nav-menu {
+        width: 90%;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    main section {
+        font-size: 2rem;
+    }
+
+    .section:first-child h1 {
+        font-size: 3rem;
+    }
+
+    .section:first-child .subtitle {
+        width: 700px;
+        font-size: 18px;
+    }
+
+    #prev,
+    #next {
+        height: 3rem;
+        width: 3rem;
+        font-size: 1.8rem;
+    }
+
+    footer {
+        font-size: 14px;
+        gap: 0.5rem;
+    }
+}
+
+/* Smartphones (≤768px) */
+@media (max-width: 768px) {
+    .nav-bar {
+        height: auto;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 0.5rem 0;
+    }
+
+    .logo {
+        width: 30%;
+    }
+
+    .nav-menu {
+        width: 100%;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .nav-menu a {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    .language {
+        width: 30%;
+        font-size: 0.9rem;
+    }
+
+    main section {
+        font-size: 1.5rem;
+    }
+
+    .section:first-child h1 {
+        font-size: 2.5rem;
+    }
+
+    .section:first-child .subtitle {
+        width: 90%;
+        font-size: 16px;
+    }
+
+    #prev,
+    #next {
+        height: 2.5rem;
+        width: 2.5rem;
+        font-size: 1.5rem;
+    }
+
+    .scroll-indicator {
+        bottom: 6rem;
+    }
+
+    footer {
+        flex-direction: column;
+        gap: 0.3rem;
+        font-size: 13px;
+    }
+}
+
+/* Très petits écrans (≤480px) */
+@media (max-width: 480px) {
+    .nav-bar {
+        gap: 0.3rem;
+    }
+
+    .logo {
+        width: 40%;
+    }
+
+    .nav-menu {
+        width: 100%;
+        flex-direction: column;
+        gap: 0.3rem;
+    }
+
+    .nav-menu a {
+        padding: 0.5rem;
+        font-size: 0.8rem;
+    }
+
+    .language {
+        width: 40%;
+        font-size: 0.8rem;
+    }
+
+    main section {
+        font-size: 1.2rem;
+    }
+
+    .section:first-child h1 {
+        font-size: 2rem;
+    }
+
+    .section:first-child .subtitle {
+        width: 95%;
+        font-size: 14px;
+    }
+
+    #prev,
+    #next {
+        height: 2rem;
+        width: 2rem;
+        font-size: 1.2rem;
+    }
+
+    .scroll-indicator {
+        bottom: 5rem;
+    }
+
+    footer {
+        font-size: 12px;
+    }
 }

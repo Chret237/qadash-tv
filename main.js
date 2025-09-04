@@ -49,7 +49,7 @@ window.addEventListener("touchend", (e) => {
 // Navigation via clics
 // navLinks.forEach((link, i) => {
 //   link.addEventListener("click", (e) => {
-//     e#preventDefault();
+//     e.preventDefault();
 //     if (!isScrolling) showSection(i);
 //   });
 // });
