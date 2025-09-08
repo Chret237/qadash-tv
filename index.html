@@ -15,23 +15,39 @@
       rel="stylesheet"
     />
 
+    <!-- Favicon Pack for Qadash TV -->
+    <!-- <link rel="icon" type="image/x-icon" href="/icons/favicon.ico"> -->
+
+    <!-- PNG Icons -->
+    <!-- <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png"> -->
+    <!-- <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png"> -->
+    <!-- <link rel="icon" type="image/png" sizes="64x64" href="/icons/favicon-64x64.png"> -->
+    <!-- <link rel="icon" type="image/png" sizes="128x128" href="/icons/favicon-128x128.png"> -->
+    <!-- <link rel="icon" type="image/png" sizes="256x256" href="/icons/favicon-256x256.png"> -->
+
+    <!-- SVG Icon (preferred for modern browsers) -->
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+
     <title>Qadash TV</title>
   </head>
   <body>
     <header class="nav-bar">
+      <div class="menu-icon">
+        <i class="fas fa-bars"></i>
+      </div>
       <div class="logo">
-        <a href="index.html"><img src="images/IMG-20250703-WA0060~01.jpg" alt="" srcset="" height="79" width="164"/></a>
+        <a href="index.html"><img src="images/logo_qadash.jpg" alt="" srcset="" height="79" width="164"/></a>
       </div>
       <nav class="nav-menu">
-        <a href="/index.html" class="active"> Accueil </a>
-        <a href="/pages/documentaires.html"> Documentaires </a>
-        <a href="/pages/enseignements.html"> Enseignements </a>
-        <a href="/pages/livres.html"> Livres </a>
-        <a href="/pages/animations.html"> Animations </a>
-        <a href="/pages/contacts.html"> Contacts </a>
+        <a class="nav-link active" href="/index.html"> Accueil </a>
+        <a class="nav-link" href="/pages/documentaires.html"> Documentaires </a>
+        <a class="nav-link" href="/pages/enseignements.html"> Enseignements </a>
+        <a class="nav-link" href="/pages/livres.html"> Livres </a>
+        <a class="nav-link" href="/pages/animations.html"> Animations </a>
+        <a class="nav-link" href="/pages/contacts.html"> Contacts </a>
       </nav>
       <div class="language">
-        Langue :
+        <i class="fa-solid fa-globe"></i>
         <select name="" id="">
             <option value="fr"><i class="fa-solid fa-flag"></i> Français</option>
             <option value="en"><i class="fa-solid fa-flag-usa"></i> Anglais</option>
@@ -40,69 +56,82 @@
     </header>
 
     <main id="container">
-      <section id="s1" class="section active">
-        <div class="slide-container active">
+      <section id="s1" class="announcements">
+      </section>
+
+      <!-- <section id="s4" class="events">
+        <div id="e1" class="slide-container active">
           <div class="slide">
             <div class="content">
-              <p>Sortez d'elle mon peuple...</p>
-              <span> Apocalypse 18:4 </span>
-              <h1>QADASH TV</h1>
-              <hr />
-              <p class="subtitle">
-                Donner de la visibilité aux actions que le Seigneur Yéhoshoua ha
-                Mashiah (Jesus-Christ) a mis dans le cœur de ses enfants pour
-                que l'Evangile soit davantage annoncé au Cameroun.
-              </p>
-              <div class="scroll-indicator">
-                <div class="scroll-indicator-content">
-                  <span class="scroll-text">Faites défiler pour voir plus</span>
-                  <div class="fa-solid fa-arrow-down"></div>
-                </div>
-              </div>
+              <h2>Action Sociales</h2>
             </div>
           </div>
         </div>
 
-        <div class="slide-container">
+        <div id="e2" class="slide-container">
           <div class="slide">
             <div class="content">
-              <p>Sortez d'elle mon peuple...</p>
-              <span> Apocalypse 18:4 </span>
-              <h1 class="title-1">QADASH TV</h1>
-              <hr />
-              <p class="subtitle">
-                Donner de la visibilité aux actions que le Seigneur Yéhoshoua ha
-                Mashiah (Jesus-Christ) a mis dans le cœur de ses enfants pour
-                que l'Evangile soit davantage annoncé au Cameroun.
-              </p>
-              <div class="scroll-indicator">
-                <div class="scroll-indicator-content">
-                  <span class="scroll-text">Faites défiler pour voir plus</span>
-                  <div class="fa-solid fa-arrow-down"></div>
-                </div>
-              </div>
+              <h2>Rencontre jeunesse</h2>
             </div>
           </div>
         </div>
 
-        <div class="slide-container">
+        <div id="e3" class="slide-container">
           <div class="slide">
             <div class="content">
-              <p>Sortez d'elle mon peuple...</p>
-              <span> Apocalypse 18:4 </span>
-              <h1 class="title-1">QADASH TV</h1>
-              <hr />
-              <p class="subtitle">
-                Donner de la visibilité aux actions que le Seigneur Yéhoshoua ha
-                Mashiah (Jesus-Christ) a mis dans le cœur de ses enfants pour
-                que l'Evangile soit davantage annoncé au Cameroun.
-              </p>
-              <div class="scroll-indicator">
-                <div class="scroll-indicator-content">
-                  <span class="scroll-text">Faites défiler pour voir plus</span>
-                  <div class="fa-solid fa-arrow-down"></div>
-                </div>
-              </div>
+              <h2>Programme des femmes</h2>
+            </div>
+          </div>
+        </div>
+
+        <div id="prev" class="fas fa-chevron-left" onclick="prev()"></div>
+        <div id="next" class="fas fa-chevron-right" onclick="next()"></div>
+      </section> -->
+
+      <section id="s2" class="hero">
+        <p>Sortez d'elle mon peuple...</p>
+        <span> Apocalypse 18:4 </span>
+        <h1>QADASH TV</h1>
+        <hr />
+        <p class="subtitle">
+          Donner de la visibilité aux actions que le Seigneur Yéhoshoua ha
+          Mashiah (Jesus-Christ) a mis dans le cœur de ses enfants pour
+          que l'Evangile soit davantage annoncé au Cameroun.
+        </p>
+      </section>
+
+      <section id="s3" class="origin">
+        <img src="images/shofar_noir.png" alt="">
+        <div>
+          <h2>
+            ORIGINE
+          </h2>
+          <p>Qadash signifie entre autres sanctifier, consacrer, purifier. Ce site a pour seul but de promouvoir la parole véritable de YEHOSHOUA (Jesus).</p>
+          <!-- <button>Vision</button> -->
+        </div>
+      </section>
+
+      <section id="s4" class="events">
+        <div id="e1" class="slide-container active">
+          <div class="slide">
+            <div class="content">
+              <h2>Action Sociales</h2>
+            </div>
+          </div>
+        </div>
+
+        <div id="e2" class="slide-container">
+          <div class="slide">
+            <div class="content">
+              <h2>Rencontre jeunesse</h2>
+            </div>
+          </div>
+        </div>
+
+        <div id="e3" class="slide-container">
+          <div class="slide">
+            <div class="content">
+              <h2>Programme des femmes</h2>
             </div>
           </div>
         </div>
@@ -111,121 +140,9 @@
         <div id="next" class="fas fa-chevron-right" onclick="next()"></div>
       </section>
 
-      <section id="s2" class="section">
-        <div class="slide-container active">
-          <div class="slide">
-            <div class="content">
-              <h2 class="title-2">Action Sociales</h2>
-              <div class="scroll-indicator">
-                <div class="scroll-indicator-content">
-                  <div class="fa-solid fa-arrow-down"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="slide-container">
-          <div class="slide">
-            <div class="content">
-              <h2 class="title-2">Action Sociales</h2>
-              <div class="scroll-indicator">
-                <div class="scroll-indicator-content">
-                  <div class="fa-solid fa-arrow-down"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="slide-container">
-          <div class="slide">
-            <div class="content">
-              <h2 class="title-2">Action Sociales</h2>
-              <div class="scroll-indicator">
-                <div class="scroll-indicator-content">
-                  <div class="fa-solid fa-arrow-down"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div id="prev" class="fas fa-chevron-left" onclick="prev()"></div>
-        <div id="next" class="fas fa-chevron-right" onclick="next()"></div>
+      <section id="s5" class="contacts">
       </section>
 
-      <section id="s3" class="section">
-        <div class="slide-container active">
-          <div class="slide">
-            <div class="content">
-              <h2 class="title-2">Rencontre jeunesse</h2>
-              <div class="scroll-indicator">
-                <div class="scroll-indicator-content">
-                  <div class="fa-solid fa-arrow-down"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="slide-container">
-          <div class="slide">
-            <div class="content">
-              <h2 class="title-2">Rencontre jeunesse</h2><div class="scroll-indicator">
-                <div class="scroll-indicator-content">
-                  <div class="fa-solid fa-arrow-down"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="slide-container">
-          <div class="slide">
-            <div class="content">
-              <h2 class="title-2">Rencontre jeunesse</h2>
-              <div class="scroll-indicator">
-                <div class="scroll-indicator-content">
-                  <div class="fa-solid fa-arrow-down"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div id="prev" class="fas fa-chevron-left" onclick="prev()"></div>
-        <div id="next" class="fas fa-chevron-right" onclick="next()"></div>
-      </section>
-
-      <section id="s4" class="section">
-        <div class="slide-container active">
-          <div class="slide">
-            <div class="content">
-              <h2 class="title-2">Programme des femmes</h2>
-            </div>
-          </div>
-        </div>
-
-        <div class="slide-container">
-          <div class="slide">
-            <div class="content">
-              <h2 class="title-2">Programme des femmes</h2>
-            </div>
-          </div>
-        </div>
-
-        <div class="slide-container">
-          <div class="slide">
-            <div class="content">
-              <h2 class="title-2">Programme des femmes</h2>
-            </div>
-          </div>
-        </div>
-
-        <div id="prev" class="fas fa-chevron-left" onclick="prev()"></div>
-        <div id="next" class="fas fa-chevron-right" onclick="next()"></div>
-      </section>
     </main>
 
     <footer>

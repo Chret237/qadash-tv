@@ -97,8 +97,8 @@
 html,
 body {
     height: 100vh;
-    overflow: hidden;
     scroll-behavior: smooth;
+    /* line-height: 1.6; */
 }
 
 h1,
@@ -109,9 +109,10 @@ h2 {
 }
 
 .nav-bar {
-    position: static;
+    position: fixed;
     top: 0;
     display: flex;
+    align-items: center;
     justify-content: center;
     gap: 1.3rem;
     height: 79px;
@@ -120,6 +121,14 @@ h2 {
     z-index: 10;
     background-color: #127484;
     color: #fff;
+    overflow: hidden;
+}
+
+.menu-icon {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    align-self: center;
 }
 
 .logo {
@@ -137,8 +146,9 @@ h2 {
 .nav-menu {
     width: 70%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .nav-menu a {
@@ -153,19 +163,21 @@ h2 {
     border: 1px solid #DE8717;
     text-transform: uppercase;
     font-size: 1rem;
+    font-weight: 600;
 }
 
 .nav-menu a:last-child {
     color: #DE8717;
-    font-weight: 600;
 }
 
 .nav-menu a:hover {
-    background-color: #DE8717;
-    color: #fff;
+    background-color: #fff;
+    color: #127484;
+    font-weight: 600;
 }
 
-a.active {
+a.active,
+a:last-child.active {
     background-color: #DE8717;
     color: #fff;
 }
@@ -212,236 +224,117 @@ a.active {
     width: 100%;
 }
 
-main section {
+.hero {
     text-align: center;
     height: 100vh;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
     font-size: 2.5rem;
-    opacity: 0;
-    transform: scale(1);
-    transition: opacity 1s ease, transform 1s ease;
-}
-
-main section:nth-child(2) .content, 
-main section:nth-child(3) .content, 
-main section:nth-child(4) .content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-
-/* .section:first-child,
-.section:nth-child(3) {
+    margin-top: 79px;
+    padding: 20px;
     background-color: #f0f0f0;
 }
 
-.section:nth-child(2),
-section:nth-child(4) {
-    background-color: #fff;
-} */
-
-.section:nth-child(2),
-.section:nth-child(3),
-section:nth-child(4) {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.section.active {
-    opacity: 1;
-    transform: scale(1);
-    z-index: 1;
-}
-
-.section .slide-container {
-    display: none;
-}
-
-.section .slide-container.active {
-    display: block;
-}
-
-.section .slide-container .slide {
-    height: 100vh;
-    position: relative;
-}
-
-.section:nth-child(1) .slide-container:nth-child(1) .slide {
-    background:
-        linear-gradient(to right, #121212, #0001), bottom / cover no-repeat url("../images/microsoft-discontinues-lackadaisically-updated-surface-v0-t1ncDUs2nLEgxn9UsGxu3eYn6WM6JGwDXI6TEDvn4Sw.webp");
-}
-
-.section:nth-child(1) .slide-container:nth-child(2) .slide {
-    background:
-        linear-gradient(to right, #121212, #0001), bottom / cover no-repeat url("../images/Microsoft-Surface-Laptop-Studio.jpg");
-}
-
-.section:nth-child(1) .slide-container:nth-child(3) .slide {
-    background:
-        linear-gradient(to right, #121212, #0001), bottom / cover no-repeat url("./images/IMG-20250703-WA0060~01.jpg");
-}
-
-.section:nth-child(2) .slide-container:nth-child(1) .slide {
-    background:
-        linear-gradient(to right, #121212, #0001), bottom / cover no-repeat url("../images/microsoft-discontinues-lackadaisically-updated-surface-v0-t1ncDUs2nLEgxn9UsGxu3eYn6WM6JGwDXI6TEDvn4Sw.webp");
-}
-
-.section:nth-child(2) .slide-container:nth-child(2) .slide {
-    background:
-        linear-gradient(to right, #121212, #0001), bottom / cover no-repeat url("../images/Microsoft-Surface-Laptop-Studio.jpg");
-}
-
-.section:nth-child(2) .slide-container:nth-child(3) .slide {
-    background:
-        linear-gradient(to right, #121212, #0001), bottom / cover no-repeat url("../images/");
-}
-
-.section:nth-child(3) .slide-container:nth-child(1) .slide {
-    background:
-        linear-gradient(to right, #121212, #0001), bottom / cover no-repeat url("../images/microsoft-discontinues-lackadaisically-updated-surface-v0-t1ncDUs2nLEgxn9UsGxu3eYn6WM6JGwDXI6TEDvn4Sw.webp");
-}
-
-.section:nth-child(3) .slide-container:nth-child(2) .slide {
-    background:
-        linear-gradient(to right, #121212, #0001), bottom / cover no-repeat url("../images/Microsoft-Surface-Laptop-Studio.jpg");
-}
-
-.section:nth-child(3) .slide-container:nth-child(3) .slide {
-    background:
-        linear-gradient(to right, #121212, #0001), bottom / cover no-repeat url("../images/");
-}
-
-.section:last-of-type .slide-container:nth-child(1) .slide {
-    background:
-        linear-gradient(to right, #121212, #0001), bottom / cover no-repeat url("../images/microsoft-discontinues-lackadaisically-updated-surface-v0-t1ncDUs2nLEgxn9UsGxu3eYn6WM6JGwDXI6TEDvn4Sw.webp");
-}
-
-.section:last-of-type .slide-container:nth-child(2) .slide {
-    background:
-        linear-gradient(to right, #121212, #0001), bottom / cover no-repeat url("../images/Microsoft-Surface-Laptop-Studio.jpg");
-}
-
-.section:last-of-type .slide-container:nth-child(3) .slide {
-    background:
-        linear-gradient(to right, #121212, #0001), bottom / cover no-repeat url("../images/");
-}
-
-.section .slide-container .slide .content {
-    height: 90vh;
-    width: 100vw;
-    color: white;
-    padding: 10px;
-}
-
-.section:first-child p:first-child {
+.hero p:first-child {
     margin-top: 10px;
     margin-bottom: 90px;
     letter-spacing: 10px;
     font-size: medium;
 }
 
-.section:first-child span {
+.hero span {
     font-size: 1.2rem;
     font-family: "Poppins", sans-serif;
     font-weight: 500;
     font-style: normal;
 }
 
-.section:first-child h1 {
+.hero h1 {
     font-size: 4rem;
 }
 
-.section:first-child hr {
+.hero hr {
     width: 13vw;
     margin: 0.5rem auto 3rem;
     border: 1px solid #DE8717;
 }
 
-.section:first-child .subtitle {
+.hero .subtitle {
     width: 900px;
     margin: 0 auto 2.5em;
     font-size: 20px;
 }
 
-.scroll-indicator {
-    position: absolute;
-    bottom: 8rem;
-    /* Tailwind's bottom-8 */
-    left: 50%;
-    transform: translateX(-50%);
-    color: #DE8717;
-}
-
-.scroll-indicator-content {
+.origin {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: 0.5rem;
-    /* Tailwind's gap-2 */
-    animation: bounce 1.5s infinite;
+    justify-content: center;
+    height: 70vh;
+    background-color: #DE8717;
+    overflow: hidden;
 }
 
-.scroll-text {
-    font-size: 0.875rem;
-    /* Tailwind's text-sm */
+.origin img {
+    max-width: 40%;
+    height: auto;
+    display: block;
 }
 
-/* Mouse outline shape */
-.mouse-shape {
-    width: 1.5rem;
-    /* 6 * 0.25rem */
-    height: 2.5rem;
-    /* 10 * 0.25rem */
-    border: 2px solid #DE8717;
-    border-radius: 9999px;
+.origin div {
+    width: 30%;
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    gap: 20px;
 }
 
-/* Inner "wheel" */
-.mouse-wheel {
-    width: 0.25rem;
-    /* 1 * 0.25rem */
-    height: 0.75rem;
-    /* 3 * 0.25rem */
-    background-color: #DE8717;
-    border-radius: 9999px;
-    margin-top: 0.5rem;
-    /* Tailwind's mt-2 */
-    animation: pulse 1.2s infinite;
+.events {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 85vh;
+    font-size: 2.5rem;
+    transform: scale(1);
+    transition: transform 1s ease;
+    overflow: hidden;
 }
 
-/* Bounce animation (like Tailwind's animate-bounce) */
-@keyframes bounce {
-
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-5px);
-    }
+.events .slide-container {
+    display: none;
 }
 
-/* Pulse animation (like Tailwind's animate-pulse) */
-@keyframes pulse {
+.events .slide-container.active {
+    display: block;
+}
 
-    0%,
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.events .slide {
+    height: 100vh;
+    position: relative;
+}
 
-    50% {
-        opacity: 0.5;
-        transform: translateY(4px);
-    }
+.events .slide-container:nth-child(1) .slide {
+    background:
+        linear-gradient(to right, #121212, #0001), top / cover no-repeat url("/images/logo_qadash.jpg");
+}
+
+.events .slide-container:nth-child(2) .slide {
+    background:
+        linear-gradient(to right, #121212, #0001), top / cover no-repeat url("/images/Microsoft-Surface-Laptop-Studio.jpg");
+}
+
+.events .slide-container:nth-child(3) .slide {
+    background:
+        linear-gradient(to right, #121212, #0001), top / cover no-repeat url("/images/shofar_noir.png");
+}
+
+.events .content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 90vh;
+    width: 100vw;
+    color: white;
+    padding: 10px;
 }
 
 #prev {
@@ -476,22 +369,16 @@ section:nth-child(4) {
 }
 
 footer {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 100%;
-    z-index: 10;
+    text-align: center;
+    padding: 2rem 0;
     background-color: #DE8717;
     color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: .2em 1em;
-    font-size: 15px;
 }
+
 footer p {
     font-weight: 500;
 }
+
 footer a {
     text-decoration: none;
     color: inherit;
@@ -503,13 +390,28 @@ footer a {
    MEDIA QUERIES ADAPTÉES
 ================================ */
 
+@media (max-width: 1234px) {
+    .hero .subtitle {
+        width: 800px;
+        font-size: 19px;
+    }
+
+    .nav-link {
+        font-size: .5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
 /* Tablettes (≤1024px) */
-@media (max-width: 1124px) {
+@media (max-width: 1024px) {
     .nav-bar {
         height: 70px;
         font-size: 1.1rem;
-        flex-direction: column;
-        gap: 0.5rem;
+        /* flex-direction: column; */
+        /* gap: 0.5rem; */
+
     }
 
     .logo {
@@ -526,11 +428,11 @@ footer a {
         font-size: 2rem;
     }
 
-    .section:first-child h1 {
+    .hero h1 {
         font-size: 3rem;
     }
 
-    .section:first-child .subtitle {
+    .hero .subtitle {
         width: 700px;
         font-size: 18px;
     }
@@ -581,11 +483,11 @@ footer a {
         font-size: 1.5rem;
     }
 
-    .section:first-child h1 {
+    .hero h1 {
         font-size: 2.5rem;
     }
 
-    .section:first-child .subtitle {
+    .hero .subtitle {
         width: 90%;
         font-size: 16px;
     }
@@ -638,11 +540,11 @@ footer a {
         font-size: 1.2rem;
     }
 
-    .section:first-child h1 {
+    .hero h1 {
         font-size: 2rem;
     }
 
-    .section:first-child .subtitle {
+    .hero .subtitle {
         width: 95%;
         font-size: 14px;
     }
