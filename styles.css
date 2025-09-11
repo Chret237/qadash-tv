@@ -391,7 +391,7 @@ a:last-child.active {
     background: #DE8717;
 }
 
-.a-indicators {
+.a-indicators, .indicators {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -404,7 +404,7 @@ a:last-child.active {
     transform: translateX(-50%);
 }
 
-.a-dot {
+.a-dot, .dot {
     display: inline-block;
     width: 14px;
     height: 14px;
@@ -415,7 +415,7 @@ a:last-child.active {
     border: 2px solid #DE8717;
 }
 
-.a-dot.active {
+.a-dot.active, .dot.active {
     background: #DE8717;
     transform: scale(1.2);
     /* border-color: #127484; */
