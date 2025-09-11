@@ -65,9 +65,45 @@ setInterval(() => {
   showAnnouncementSlide && showAnnouncementSlide(Date.now());
 }, 3000);
 
+// --- Swipe tactile pour la section événements ---
+(function addEventSwipe() {
+  const eventsSection = document.querySelector(".events");
+  if (!eventsSection) return;
+
+  let startX = 0;
+  let endX = 0;
+
+  eventsSection.addEventListener("touchstart", (e) => {
+    if (e.touches.length === 1) {
+      startX = e.touches[0].clientX;
+    }
+  });
+
+  eventsSection.addEventListener("touchend", (e) => {
+    endX = e.changedTouches[0].clientX;
+    const diff = endX - startX;
+    if (Math.abs(diff) > 40) {
+      // seuil de swipe
+      if (diff > 0) {
+        // Swipe vers la droite : slide précédent
+        showEventSlide && showEventSlide(Date.now() - 1);
+      } else {
+        // Swipe vers la gauche : slide suivant
+        showEventSlide && showEventSlide(Date.now() + 1);
+      }
+    }
+  });
+})();
+
 // Gestion du menu burger pour mobile
-// const burger = document.querySelector(".burger");
-// const navLinks = document.querySelector(".nav-links");
-// burger.addEventListener("click", () => {
-//   navLinks.classList.toggle("active");
-// });
+const burger = document.querySelector(".burger");
+const navMenu = document.querySelector(".nav-menu");
+burger.addEventListener("click", () => {
+  burger.querySelector(".fas").classList.toggle("fa-times");
+  navMenu.classList.toggle("active");
+});
+
+window.onscroll = () => {
+  burger.querySelector(".fas").classList.remove("fa-times");
+  navMenu.classList.remove("active");
+};
