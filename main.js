@@ -1,8 +1,8 @@
 // Gestion des liens de navigation
 document.querySelectorAll(".nav-link").forEach((link) => {
-  link.addEventListener("click", (e) => {
+  link?.addEventListener("click", (e) => {
     const parent = e.currentTarget.parentElement;
-    parent.querySelector(".active")?.classList.remove("active");
+    parent?.querySelector(".active")?.classList.remove("active");
     e.currentTarget.classList.add("active");
   });
 });
@@ -16,28 +16,28 @@ function initSlider(
   dotSelector
 ) {
   const container = document.querySelector(containerSelector);
-  const slides = container.querySelectorAll(slideSelector);
-  const dots = dotSelector ? container.querySelectorAll(dotSelector) : [];
+  const slides = container?.querySelectorAll(slideSelector);
+  const dots = dotSelector ? container?.querySelectorAll(dotSelector) : [];
   let index = 0;
 
   const update = () => {
-    slides.forEach((s, i) => s.classList.toggle("active", i === index));
-    dots.forEach((d, i) => d.classList.toggle("active", i === index));
+    slides?.forEach((s, i) => s.classList.toggle("active", i === index));
+    dots?.forEach((d, i) => d.classList.toggle("active", i === index));
   };
 
   const showSlide = (newIndex) => {
-    index = (newIndex + slides.length) % slides.length;
+    index = (newIndex + slides?.length) % slides?.length;
     update();
   };
 
   container
-    .querySelector(prevSelector)
+    ?.querySelector(prevSelector)
     ?.addEventListener("click", () => showSlide(index - 1));
   container
-    .querySelector(nextSelector)
+    ?.querySelector(nextSelector)
     ?.addEventListener("click", () => showSlide(index + 1));
 
-  dots.forEach((dot, i) => dot.addEventListener("click", () => showSlide(i)));
+  dots?.forEach((dot, i) => dot.addEventListener("click", () => showSlide(i)));
 
   update(); // initialise le premier affichage
   return showSlide;
@@ -96,14 +96,17 @@ setInterval(() => {
 })();
 
 // Gestion du menu burger pour mobile
-const burger = document.querySelector(".burger");
+const burger = document.querySelector(".burger i");
 const navMenu = document.querySelector(".nav-menu");
-burger.addEventListener("click", () => {
-  burger.querySelector(".fas").classList.toggle("fa-times");
-  navMenu.classList.toggle("active");
-});
+
+if (burger && navMenu) {
+  burger.addEventListener("click", () => {
+    burger.classList.toggle("fa-times");
+    navMenu.classList.toggle("active");
+  });
+}
 
 window.onscroll = () => {
-  burger.querySelector(".fas").classList.remove("fa-times");
+  burger.classList.remove("fa-times");
   navMenu.classList.remove("active");
 };
