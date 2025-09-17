@@ -250,7 +250,7 @@ a:last-child.active {
     /* height: 70vh; */
     font-size: 2.5rem;
     padding: 2rem .8rem;
-    background-color: #f0f0f0;
+    background-color: #f0f0f073;
 }
 
 .hero p:first-child {
@@ -451,7 +451,7 @@ a:last-child.active {
 }
 
 .contacts {
-    background-color: #f0f0f0;
+    background-color: #f0f0f073;
     width: 100%;
     margin: 0 auto;
     height: auto;
@@ -508,10 +508,10 @@ a:last-child.active {
     text-decoration: underline;
 }
 
-/*PAGES DOCUMENTAIRES*/
+/*PAGE DOCUMENTAIRES*/
 
 .documentaires {
-    background-color: #f0f0f0;
+    background-color: #f0f0f073;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -531,32 +531,160 @@ a:last-child.active {
     margin: 10px;
 }
 
-/*PAGES ENSEIGNEMENTS*/
+/*PAGE ENSEIGNEMENTS*/
 
-.enseignements {
+.enseignements,
+.animations {
     text-align: center;
     height: auto;
     font-size: 2.5rem;
     padding: 2rem .8rem;
-    background-color: #f0f0f0;
+    background-color: #f0f0f073;
     overflow-x: hidden;
 }
 
-.enseignements section div {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.enseignements h1,
+.animations h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #127484;
+}
+
+.enseignements section div,
+.animations section div {
     gap: 1rem;
     height: auto;
     font-size: 2.5rem;
     padding: 2rem .8rem;
 }
 
-.enseignements section iframe {
-    width: 80%;
-    border: none;
-    border-radius: 1rem;
+.enseignements .video-grid,
+.animations .video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
 }
+
+.enseignements .video iframe,
+.animations .video iframe {
+    width: 90%;
+    height: 215px;
+    border-radius: .5rem;
+}
+
+.enseignements .video iframe:hover,
+.animations .video iframe:hover {
+    transform: scale(1.05);
+}
+
+.enseignements .video,
+.animations .video {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+}
+
+.enseignements .video p,
+.animations .video p {
+    font-size: 1.1rem;
+    font-weight: 500;
+    height: 6rem;
+    padding: 0 1rem;
+    text-align: center;
+}
+
+/*PAGE LIVRES*/
+
+.livres {
+    padding: 40px 5%;
+    background-color: #f0f0f073;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.section-header h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #127484;
+}
+
+/* .section-header span {
+    font-size: 0.95rem;
+    color: #127484;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.section-header span:hover {
+    color: #de8717;
+} */
+
+.book-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+}
+
+.book {
+    background: #fff;
+    /* border-radius: 12px; */
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+/* .book:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+} */
+
+.book img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.book h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #121212;
+}
+
+.book p {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 12px;
+}
+
+.book .btn {
+    display: inline-block;
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    background: #127484;
+    color: #fff;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.book .btn:hover {
+    background: #DE8717;
+}
+
+/*PAGE ANIMATIONS*/
 
 footer {
     text-align: center;

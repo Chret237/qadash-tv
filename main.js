@@ -1,3 +1,10 @@
+window.onload = () => {
+  document.body.style.opacity = "0.5";
+  setTimeout(() => {
+    document.body.style.opacity = "1";
+  }, 200);
+};
+
 // Gestion des liens de navigation
 document.querySelectorAll(".nav-link").forEach((link) => {
   link?.addEventListener("click", (e) => {
