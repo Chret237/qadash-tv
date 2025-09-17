@@ -550,6 +550,11 @@ a:last-child.active {
     color: #127484;
 }
 
+.enseignements section {
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
 .enseignements section div,
 .animations section div {
     gap: 1rem;
@@ -561,19 +566,8 @@ a:last-child.active {
 .enseignements .video-grid,
 .animations .video-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-}
-
-.enseignements .video iframe,
-.animations .video iframe {
-    width: 90%;
-    height: 215px;
-    border-radius: .5rem;
-}
-
-.enseignements .video iframe:hover,
-.animations .video iframe:hover {
-    transform: scale(1.05);
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
 }
 
 .enseignements .video,
@@ -581,17 +575,31 @@ a:last-child.active {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     padding: 0;
+}
+
+.enseignements .video iframe,
+.animations .video iframe {
+    width: 90%;
+    aspect-ratio: 16 / 9;
+    /* garantit le format YouTube */
+    border-radius: .5rem;
+    transition: transform 0.3s ease;
+}
+
+.enseignements .video iframe:hover,
+.animations .video iframe:hover {
+    transform: scale(1.05);
 }
 
 .enseignements .video p,
 .animations .video p {
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 500;
-    height: 6rem;
-    padding: 0 1rem;
+    padding: 0.5rem;
     text-align: center;
+    line-height: 1.4;
 }
 
 /*PAGE LIVRES*/
@@ -886,6 +894,11 @@ footer a {
         font-size: .8rem;
     }
 
+    footer {
+        flex-direction: column;
+        gap: 0.3rem;
+    }
+
     /*PAGES DOCUMENTAIRES*/
 
     .documentaires {
@@ -894,23 +907,32 @@ footer a {
 
     /*PAGES ENSEIGNEMENTS*/
 
-    .enseignements hr {
+    .enseignements,
+    .animations {
+        padding: 1.5rem .5rem;
+    }
+
+    .enseignements h1,
+    .animations h1 {
+        font-size: 1.5rem;
+    }
+
+    .enseignements hr,
+    .animations hr {
         width: 40%;
         margin: 0 auto;
     }
-    .enseignements section div {
-        font-size: 1.5rem;
-        flex-direction: column;
+
+    .enseignements .video-grid,
+    .animations .video-grid {
+        grid-template-columns: 1fr;
+        /* une seule colonne sur petit écran */
     }
 
-    .enseignements section iframe {
-        width: 80%;
-        height: 300px;
-    }
-
-    footer {
-        flex-direction: column;
-        gap: 0.3rem;
+    .enseignements .video p,
+    .animations .video p {
+        font-size: 0.9rem;
+        height: auto;
     }
 }
 
