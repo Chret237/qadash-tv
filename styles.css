@@ -254,7 +254,7 @@ a:last-child.active {
 }
 
 .hero p:first-child {
-    margin-bottom: 20px;
+    margin-bottom: 80px;
     letter-spacing: 10px;
     font-size: 1rem;
 }
@@ -265,6 +265,8 @@ a:last-child.active {
 
 .hero h1 {
     font-size: 4rem;
+    display: flex;
+    flex-direction: column;
 }
 
 .hero hr,
@@ -852,7 +854,7 @@ footer a {
     }
 
     .hero .subtitle {
-        width: 90%;
+        width: 85%;
         font-size: 16px;
     }
 
@@ -998,10 +1000,6 @@ footer a {
         font-size: 1rem;
     }
 
-    .hero .subtitle {
-        width: 95%;
-    }
-
     .origin {
         height: 50vh;
     }
@@ -1078,9 +1076,17 @@ footer a {
         font-size: 1.2rem;
     }
 
+    .hero {
+        padding: 1rem .9rem;
+    }
+
     .hero p:first-child {
         margin-bottom: 30px;
         font-size: .9rem;
+    }
+
+    .hero p:first-child {
+        margin-bottom: 80px;
     }
 
     .hero span {
@@ -1092,7 +1098,6 @@ footer a {
     }
 
     .hero .subtitle {
-        width: 95%;
         font-size: 14px;
     }
 
