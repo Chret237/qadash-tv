@@ -14,94 +14,6 @@ document.querySelectorAll(".nav-link").forEach((link) => {
   });
 });
 
-// Fonction générique pour sliders avec points
-function initSlider(
-  containerSelector,
-  slideSelector,
-  prevSelector,
-  nextSelector,
-  dotSelector
-) {
-  const container = document.querySelector(containerSelector);
-  const slides = container?.querySelectorAll(slideSelector);
-  const dots = dotSelector ? container?.querySelectorAll(dotSelector) : [];
-  let index = 0;
-
-  const update = () => {
-    slides?.forEach((s, i) => s.classList.toggle("active", i === index));
-    dots?.forEach((d, i) => d.classList.toggle("active", i === index));
-  };
-
-  const showSlide = (newIndex) => {
-    index = (newIndex + slides?.length) % slides?.length;
-    update();
-  };
-
-  container
-    ?.querySelector(prevSelector)
-    ?.addEventListener("click", () => showSlide(index - 1));
-  container
-    ?.querySelector(nextSelector)
-    ?.addEventListener("click", () => showSlide(index + 1));
-
-  dots?.forEach((dot, i) => dot.addEventListener("click", () => showSlide(i)));
-
-  update(); // initialise le premier affichage
-  return showSlide;
-}
-
-// Initialisation des sliders
-const showEventSlide = initSlider(
-  ".events",
-  ".slide-container",
-  "#prev",
-  "#next",
-  ".dot"
-);
-const showAnnouncementSlide = initSlider(
-  ".announcements",
-  ".a-slide-container",
-  "#a-prev",
-  "#a-next",
-  ".a-dot"
-);
-
-// Défilement automatique toutes les 3 secondes
-setInterval(() => {
-  showEventSlide && showEventSlide(Date.now());
-  showAnnouncementSlide && showAnnouncementSlide(Date.now());
-}, 3000);
-
-// --- Swipe tactile pour la section événements ---
-(function addEventSwipe() {
-  const eventsSection = document.querySelector(".events");
-  if (!eventsSection) return;
-
-  let startX = 0;
-  let endX = 0;
-
-  eventsSection.addEventListener("touchstart", (e) => {
-    if (e.touches.length === 1) {
-      startX = e.touches[0].clientX;
-    }
-  });
-
-  eventsSection.addEventListener("touchend", (e) => {
-    endX = e.changedTouches[0].clientX;
-    const diff = endX - startX;
-    if (Math.abs(diff) > 40) {
-      // seuil de swipe
-      if (diff > 0) {
-        // Swipe vers la droite : slide précédent
-        showEventSlide && showEventSlide(Date.now() - 1);
-      } else {
-        // Swipe vers la gauche : slide suivant
-        showEventSlide && showEventSlide(Date.now() + 1);
-      }
-    }
-  });
-})();
-
 // Gestion du menu burger pour mobile
 const burger = document.querySelector(".burger i");
 const navMenu = document.querySelector(".nav-menu");
@@ -117,3 +29,78 @@ window.onscroll = () => {
   burger.classList.remove("fa-times");
   navMenu.classList.remove("active");
 };
+
+/* ===========================
+   QADASH MASTER-LIKE SLIDERS
+=========================== */
+function qadashSlider(sectionSelector, slideSelector) {
+  const section = document.querySelector(sectionSelector);
+  if (!section) return;
+
+  const slides = section.querySelectorAll(slideSelector);
+  const dots = section.querySelectorAll(".dot");
+  const prev = section.querySelector(".prev");
+  const next = section.querySelector(".next");
+
+  let index = 0;
+  let timer;
+
+  function showSlide(i) {
+    slides.forEach((s, idx) => {
+    s.classList.remove("active", "prev");
+    if (idx === i) s.classList.add("active");
+    else if (idx === (i - 1 + slides.length) % slides.length)
+      s.classList.add("prev");
+  });
+  dots.forEach((d, idx) => d.classList.toggle("active", idx === i));
+  }
+
+  function nextSlide() {
+    index = (index + 1) % slides.length;
+    showSlide(index);
+  }
+
+  function prevSlide() {
+    index = (index - 1 + slides.length) % slides.length;
+    showSlide(index);
+  }
+
+  function startAuto() {
+    stopAuto();
+    timer = setInterval(nextSlide, 5000);
+  }
+
+  function stopAuto() {
+    if (timer) clearInterval(timer);
+  }
+
+  next?.addEventListener("click", () => {
+    nextSlide();
+    startAuto();
+  });
+
+  prev?.addEventListener("click", () => {
+    prevSlide();
+    startAuto();
+  });
+
+  dots.forEach((dot, i) =>
+    dot.addEventListener("click", () => {
+      index = i;
+      showSlide(index);
+      startAuto();
+    })
+  );
+
+  section.addEventListener("mouseenter", stopAuto);
+  section.addEventListener("mouseleave", startAuto);
+
+  showSlide(index);
+  startAuto();
+}
+
+/* Initialisation */
+window.addEventListener("load", () => {
+  qadashSlider(".announcements-slider", ".announcements-slide");
+  qadashSlider(".events-slider", ".event-slide");
+});

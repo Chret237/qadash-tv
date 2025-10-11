@@ -121,20 +121,6 @@ a {
     color: #DE8717;
 }
 
-.announcements .a-slide {
-    height: 55vh;
-    position: relative;
-}
-
-.announcements .a-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 45vh;
-    width: 100vw;
-    color: white;
-}
-
 .nav-bar {
     position: sticky;
     top: 0;
@@ -162,6 +148,7 @@ a {
     width: 100%;
     display: block;
     object-fit: contain;
+    background: none;
 }
 
 .nav-menu {
@@ -313,143 +300,152 @@ a:last-child.active {
     /* text-align: justify; */
 }
 
-.events,
-.announcements {
-    text-align: center;
-    height: auto;
-    font-size: 2.5rem;
-    transform: scale(1);
-    transition: transform 1s ease;
-    overflow: hidden;
-}
+/* ===========================
+   QADASH SLIDERS
+=========================== */
 
-.events .slide-container,
-.announcements .a-slide-container {
-    display: none;
-}
-
-.events .slide-container.active,
-.announcements .a-slide-container.active {
-    display: block;
-}
-
-.events .slide {
-    height: 90vh;
+.announcements-slider,
+.events-slider {
     position: relative;
+    width: 100%;
+    height: 70vh;
+    overflow: hidden;
+    font-family: "Poppins", sans-serif;
 }
 
-.events .slide-container:nth-child(1) .slide {
-    background:
-        linear-gradient(to right, #121212, #0001), center / cover no-repeat url("/images/microsoft-discontinues-lackadaisically-updated-surface-v0-t1ncDUs2nLEgxn9UsGxu3eYn6WM6JGwDXI6TEDvn4Sw.webp");
-}
-
-.announcements .a-slide-container:nth-child(2) .a-slide {
-    background: url("/images/Microsoft-Surface-Laptop-Studio.jpg") no-repeat;
+/* --- SLIDES --- */
+.announcements-slide,
+.event-slide {
+    position: absolute;
+    inset: 0;
     background-size: cover;
     background-position: center;
+    /* opacity: 0; */
+    transform: translateX(100%);
+    transition: transform 1s ease-in-out, opacity 0.8s ease;
 }
 
-.events .slide-container:nth-child(2) .slide {
-    background:
-        linear-gradient(to right, #121212, #0001), center / cover no-repeat url("/images/Microsoft-Surface-Laptop-Studio.jpg");
+.announcements-slide.active,
+.event-slide.active {
+    /* opacity: 1; */
+    transform: translateX(0);
+    z-index: 2;
 }
 
-.announcements .a-slide-container:nth-child(3) .a-slide {
-    background: url("/images/7.jpeg") no-repeat;
-    background-size: cover;
-    background-position: center;
+.announcements-slide.prev,
+.event-slide.prev {
+    transform: translateX(-100%);
+
 }
 
-.events .slide-container:nth-child(3) .slide {
-    background:
-        linear-gradient(to right, #121212, #0001), center / cover no-repeat url("/images/7.jpeg");
+/* --- OVERLAY pour events --- */
+.events-slider .overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 1;
 }
 
-.announcements .a-slide-container:nth-child(1) .a-slide {
-    background: url("/images/microsoft-discontinues-lackadaisically-updated-surface-v0-t1ncDUs2nLEgxn9UsGxu3eYn6WM6JGwDXI6TEDvn4Sw.webp") no-repeat;
-    background-size: cover;
-    background-position: center;
+/* --- CONTENU texte + bouton --- */
+.events-slider .content {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+    animation: fadeUp 1s ease forwards;
 }
 
-.events .content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    height: 90vh;
-    width: 100vw;
-    color: white;
-    padding: 10px;
+.events-slider .content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
 }
 
-#prev,
-#a-prev {
-    left: 2rem;
+.events-slider .content .btn {
+    display: inline-block;
+    padding: 0.8rem 1.6rem;
+    background: #de8717;
+    color: #fff;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.3s ease;
 }
 
-#next,
-#a-next {
-    right: 2rem;
+.events-slider .content .btn:hover {
+    background: #127484;
 }
 
-#prev,
-#next,
-#a-prev,
-#a-next {
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(40%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(-50%);
+    }
+}
+
+/* --- NAVIGATION --- */
+.nav {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    font-size: 2.5rem;
+    color: #de8717;
+    background: rgba(0, 0, 0, 0.3);
     border-radius: 50%;
-    z-index: 100;
-    height: 3.5rem;
-    width: 3.5rem;
-    line-height: 3.2rem;
-    font-size: 2rem;
-    color: #DE8717;
-    border: .2rem solid #DE8717;
-    cursor: pointer;
+    width: 3rem;
+    height: 3rem;
+    line-height: 3rem;
     text-align: center;
+    cursor: pointer;
+    z-index: 3;
+    user-select: none;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
-#prev:hover,
-#next:hover,
-#a-prev:hover,
-#a-next:hover {
+.nav:hover {
+    background: #de8717;
     color: #fff;
-    background: #DE8717;
 }
 
-.a-indicators,
-.indicators {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.7rem;
-    /* margin-top: 1.5rem;
-    margin-bottom: 1rem; */
+.nav.prev {
+    left: 1.5rem;
+}
+
+.nav.next {
+    right: 1.5rem;
+}
+
+/* --- DOTS --- */
+.dots {
     position: absolute;
-    bottom: 1.3rem;
+    bottom: 1.5rem;
     left: 50%;
     transform: translateX(-50%);
+    display: flex;
+    gap: 0.6rem;
+    z-index: 3;
 }
 
-.a-dot,
-.dot {
-    display: inline-block;
+.dots .dot {
     width: 14px;
     height: 14px;
     border-radius: 50%;
     background: #ccc;
+    border: 2px solid #de8717;
     cursor: pointer;
-    transition: background 0.3s, transform 0.3s;
-    border: 2px solid #DE8717;
+    transition: background 0.3s ease, transform 0.3s ease;
 }
 
-.a-dot.active,
-.dot.active {
-    background: #DE8717;
+.dots .dot.active {
+    background: #de8717;
     transform: scale(1.2);
-    /* border-color: #127484; */
 }
 
 .contacts {
@@ -584,8 +580,7 @@ a:last-child.active {
 .enseignements .video iframe,
 .animations .video iframe {
     width: 90%;
-    aspect-ratio: 16 / 9;
-    /* garantit le format YouTube */
+    aspect-ratio: 16 / 9; /* garantit le format YouTube */
     border-radius: .5rem;
     transition: transform 0.3s ease;
 }
@@ -638,7 +633,7 @@ a:last-child.active {
 .book-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 25px;
+    gap: 1.5rem;
 }
 
 .book {
@@ -663,6 +658,7 @@ a:last-child.active {
     object-fit: cover;
     border-radius: 8px;
     margin-bottom: 15px;
+    border: 1px solid #ddd;
 }
 
 .book h3 {
@@ -717,9 +713,10 @@ footer a {
 /* ================================
    MEDIA QUERIES ADAPTÉES
 ================================ */
+/* @media (max-width: 1195px) { */
 
 /* Tablettes (≤1024px) */
-@media (max-width: 1024px) {
+@media (max-width: 1225px) {
     .nav-bar {
         font-size: 1.1rem;
         flex-direction: row-reverse;
@@ -778,33 +775,12 @@ footer a {
         font-size: 1rem;
     }
 
-    .events .content {
-        height: 80vh;
-    }
-
-    .events .content h2,
-    .announcements .a-content h2 {
-        margin: 200px;
-    }
-
-    .events .slide {
-        height: 80vh;
-    }
-
     .contacts {
         gap: 1rem;
     }
 
     .contacts div {
         width: 45%;
-    }
-
-    #prev,
-    #next {
-        height: 3rem;
-        width: 3rem;
-        font-size: 1.8rem;
-        line-height: 2.7rem;
     }
 
     footer {
@@ -866,26 +842,15 @@ footer a {
         font-size: .8rem;
     }
 
-    .events .slide {
-        height: 70vh;
+    .events-slider .content h2 {
+        font-size: 1.8rem;
     }
 
-    .events .content {
-        height: 70vh;
-    }
-
-    .events .content h2,
-    .announcements .a-content h2 {
-        margin: 100px;
-        font-size: 2.5rem;
-    }
-
-    #prev,
-    #next {
-        height: 2.5rem;
+    .nav {
+        font-size: 2rem;
         width: 2.5rem;
-        font-size: 1.5rem;
-        line-height: 2.2rem;
+        height: 2.5rem;
+        line-height: 2.5rem;
     }
 
     .contacts div {
@@ -951,21 +916,19 @@ footer a {
 
 /* Très petits écrans (≤480px) */
 @media (max-width: 480px) {
-    .announcements .a-slide {
-        height: 45vh;
-    }
-
     .nav-bar {
         gap: 0.3rem;
-        height: 75px;
+        /* height: 75px; */
     }
 
     .burger {
-        width: 35%;
+        width: 30%;
+        text-align: end;
+        padding-right: 1.4rem;
     }
 
     .logo {
-        width: 30%;
+        width: 40%;
     }
 
     .nav-menu {
@@ -984,11 +947,13 @@ footer a {
     }
 
     .language {
-        width: 35%;
+        width: 30%;
+        justify-content: left;
+        padding-left: 1rem;
     }
 
     .language select {
-        width: 50%;
+        width: 60%;
         font-size: .8rem;
     }
 
@@ -1010,28 +975,6 @@ footer a {
         gap: 10px;
     }
 
-    .events .slide {
-        height: 60vh;
-    }
-
-    .events .content {
-        height: 60vh;
-    }
-
-    .events .content h2,
-    .announcements .a-content h2 {
-        margin: 80px;
-        font-size: 2rem;
-    }
-
-    #a-prev,
-    #a-next {
-        height: 2rem;
-        width: 2rem;
-        font-size: 1.2rem;
-        line-height: 1.8rem;
-    }
-
     .contacts {
         padding: 1.3rem;
     }
@@ -1044,15 +987,14 @@ footer a {
 @media (max-width: 320px) {
     .nav-bar {
         gap: 0.2rem;
-        height: 52px;
     }
 
     .burger {
-        width: 40%;
+        width: 25%;
     }
 
     .logo {
-        width: 30%;
+        width: 50%;
     }
 
     .nav-menu.active {
@@ -1065,7 +1007,7 @@ footer a {
     }
 
     .language {
-        width: 35%;
+        width: 25%;
     }
 
     .language select {
@@ -1077,7 +1019,7 @@ footer a {
     }
 
     .hero {
-        padding: 1rem .9rem;
+        padding: 2rem .9rem;
     }
 
     .hero p:first-child {
@@ -1105,28 +1047,6 @@ footer a {
         width: 50%;
         font-size: .8rem;
         gap: 10px;
-    }
-
-    .events .slide {
-        height: 60vh;
-    }
-
-    .events .content {
-        height: 60vh;
-    }
-
-    .events .content h2,
-    .announcements .a-content h2 {
-        margin: 80px;
-        font-size: 2rem;
-    }
-
-    #a-prev,
-    #a-next {
-        height: 2rem;
-        width: 2rem;
-        font-size: 1.2rem;
-        line-height: 1.8rem;
     }
 
     .contacts div {
