@@ -67,10 +67,7 @@
       </nav>
       <div class="language">
         <i class="fa-solid fa-globe"></i>
-        <select name="" id="">
-          <option value="fr">Français</option>
-          <option value="en">Anglais</option>
-        </select>
+        <div id="google_translate_element"></div>
       </div>
     </header>
 
@@ -78,15 +75,15 @@
       <section class="announcements-slider">
         <div
           class="announcements-slide active"
-          style="background-image: url('images/a1.jpg')"
+          style="background-image: url('/images/a1.jpg')"
         ></div>
         <div
           class="announcements-slide"
-          style="background-image: url('images/a2.jpg')"
+          style="background-image: url('/images/a2.jpg')"
         ></div>
         <div
           class="announcements-slide"
-          style="background-image: url('images/a3.jpg')"
+          style="background-image: url('/images/a3.jpg')"
         ></div>
 
         <div class="nav prev">&#10094;</div>
@@ -114,10 +111,10 @@
       </section>
 
       <section id="s3" class="origin">
-        <img src="images/Qadash new logo-02.png" alt="" />
+        <img src="/images/Qadash new logo-02.png" alt="" />
         <div>
           <h2>
-            SIGNIFICATION & VISIONsssss
+            SIGNIFICATION & VISION
             <hr />
           </h2>
           <p>
@@ -132,7 +129,7 @@
       <section class="events-slider">
         <div
           class="event-slide active"
-          style="background-image: url('images/e3.jfif')"
+          style="background-image: url('/images/e5.jpg')"
         >
           <div class="overlay"></div>
           <div class="content">
@@ -141,7 +138,7 @@
           </div>
         </div>
 
-        <div class="event-slide" style="background-image: url('images/e4.jpg')">
+        <div class="event-slide" style="background-image: url('/images/e4.jpg')">
           <div class="overlay"></div>
           <div class="content">
             <h2>Rencontre Jeunesse</h2>
@@ -149,7 +146,7 @@
           </div>
         </div>
 
-        <div class="event-slide" style="background-image: url('images/e2.jpg')">
+        <div class="event-slide" style="background-image: url('/images/e2.jpg')">
           <div class="overlay"></div>
           <div class="content">
             <h2>Programme des Femmes</h2>
@@ -218,5 +215,7 @@
 
     <script src="main.js"></script>
     <script src="scripts/app.js"></script>
+    <script src="/scripts/translate.js"></script>
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   </body>
 </html>

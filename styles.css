@@ -195,6 +195,7 @@ a:last-child.active {
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 5px;
     font-size: 1rem;
 }
 
@@ -328,6 +329,7 @@ a:last-child.active {
 
 .event-slide {
     background-size: cover;
+    background-position: center;
 }
 
 .announcements-slide.active,
@@ -1059,3 +1061,30 @@ footer a {
         width: 100%;
     }
 }
+
+/* === Google Translate custom style === */
+.goog-te-gadget-simple {
+    background-color: transparent !important;
+    border: none !important;
+}
+
+.goog-te-gadget-icon {
+  display: none !important;
+}
+
+.goog-te-gadget-simple a, .goog-te-gadget-simple a span {
+    color: #fff !important;
+}
+
+/* .goog-te-gadget-simple a span {
+    content: ;
+} */
+
+/* Masquer la bannière Google */
+/* .goog-te-banner-frame.skiptranslate {
+  display: none !important;
+} */
+body {
+  bottom: 0px !important;
+}
+

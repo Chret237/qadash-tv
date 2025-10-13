@@ -6,33 +6,41 @@ const urlsToCache = [
   "/images/shofar_blanc.png",
 ];
 
-// Installation (mise en cache initiale)
-self.addEventListener("install", (event) => {
+// Installation – mise en cache initiale
+self.addEventListener("install", event => {
+  console.log("🔧 Service Worker installé !");
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => cache.addAll(urlsToCache))
+    caches.open(CACHE_NAME).then(cache => cache.addAll(urlsToCache))
   );
+  self.skipWaiting(); // active immédiatement la nouvelle version
 });
 
-// Activation (nettoyage des anciens caches)
-self.addEventListener("activate", (event) => {
+// Activation – nettoyage des anciens caches
+self.addEventListener("activate", event => {
+  console.log("🚀 Activation du nouveau Service Worker !");
   event.waitUntil(
-    caches
-      .keys()
-      .then((cacheNames) =>
-        Promise.all(
-          cacheNames
-            .filter((name) => name !== CACHE_NAME)
-            .map((name) => caches.delete(name))
-        )
-      )
+    caches.keys().then(keys =>
+      Promise.all(keys.map(key => {
+        if (key !== CACHE_NAME) {
+          console.log("🧹 Suppression de l’ancien cache :", key);
+          return caches.delete(key);
+        }
+      }))
+    )
   );
+  self.clients.claim(); // ⚡ active immédiatement sur les pages ouvertes
 });
 
-// Stratégie : Cache falling back to Network
-self.addEventListener("fetch", (event) => {
+// Fetch – stratégie : Network First, fallback cache
+self.addEventListener("fetch", event => {
   event.respondWith(
-    caches
-      .match(event.request)
-      .then((response) => response || fetch(event.request))
+    fetch(event.request)
+      .then(response => {
+        // met à jour le cache
+        const cloned = response.clone();
+        caches.open(CACHE_NAME).then(cache => cache.put(event.request, cloned));
+        return response;
+      })
+      .catch(() => caches.match(event.request)) // si offline → version cache
   );
 });
