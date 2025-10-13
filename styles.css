@@ -1,11 +1,3 @@
-/* :root {
-    --black : #121212;
-    --white : #FFFFFF;
-    --orange : #DE8717;
-    --blue-green : #127484;
-    --gray : #f0f0f0;
-} */
-
 * {
     margin: 0;
     padding: 0;
@@ -199,34 +191,33 @@ a:last-child.active {
     font-size: 1rem;
 }
 
-.language select {
-    width: 50%;
-    height: 50%;
-    text-align: center;
-    outline: none;
-    cursor: pointer;
-    border: none;
-    background-color: transparent;
-    color: inherit;
-    font-size: .9rem;
+/* === Google Translate custom style === */
+.goog-te-gadget-simple {
+    background-color: transparent !important;
+    border: none !important;
 }
 
-.language select option {
-    background-color: #127484;
-    font-size: 1rem;
+.goog-te-gadget-icon {
+    display: none !important;
 }
 
-/* Custom dropdown arrow for select */
-/* .language select {
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    background-image: url("data:image/svg+xml;charset=UTF-8,<svg width='16' height='16' fill='white' xmlns='http://www.w3.org/2000/svg'><path d='M4 6l4 4 4-4' stroke='%23DE8717' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>");
-    background-repeat: no-repeat;
-    background-position: right 0.75rem center;
-    background-size: 1.2em;
-    padding-right: 2.5em;
-} */
+.goog-te-gadget-simple a,
+.goog-te-gadget-simple a span {
+    color: #fff !important;
+}
+
+.goog-te-gadget-simple a span:first-child {
+    font-size: 0 !important;
+}
+
+.goog-te-gadget-simple a span:first-child:after {
+    content: "Langue" !important;
+    font-size: .9rem !important;
+}
+
+body {
+    bottom: 0px !important;
+}
 
 #container {
     position: relative;
@@ -279,7 +270,6 @@ a:last-child.active {
     background-color: #197a86;
     overflow: hidden;
     color: #fff;
-    /* padding: 1.3rem; */
 }
 
 .origin hr {
@@ -298,7 +288,6 @@ a:last-child.active {
     justify-content: center;
     flex-direction: column;
     gap: 1.3rem;
-    /* text-align: justify; */
 }
 
 /* ===========================
@@ -350,7 +339,6 @@ a:last-child.active {
     position: absolute;
     inset: 0;
     background: rgba(0, 0, 0, 0.45);
-    /* background: rgba(18, 117, 132, 0.377); */
     z-index: 1;
 }
 
@@ -489,7 +477,7 @@ a:last-child.active {
     flex-direction: column;
     padding: 1rem;
     border-radius: 1rem;
-    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .contacts i {
@@ -501,7 +489,6 @@ a:last-child.active {
 .contacts h3 {
     width: 100%;
     text-align: center;
-    /* margin-bottom: 1rem; */
     font-size: 1.5rem;
     font-weight: 600;
 }
@@ -572,7 +559,7 @@ a:last-child.active {
 .enseignements .video-grid,
 .animations .video-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 1.5rem;
 }
 
@@ -646,19 +633,19 @@ a:last-child.active {
 
 .book {
     background: #fff;
-    /* border-radius: 12px; */
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-    padding: 15px;
+    padding: 15px 15px 50px 15px;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
-/* .book:hover {
+.book:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-} */
+}
 
 .book img {
     width: 100%;
@@ -692,6 +679,9 @@ a:last-child.active {
     border-radius: 6px;
     text-decoration: none;
     transition: background 0.3s ease;
+    position: absolute;
+    bottom: 1rem;
+    width: calc(100% - 30px);
 }
 
 .book .btn:hover {
@@ -721,9 +711,7 @@ footer a {
 /* ================================
    MEDIA QUERIES ADAPTÉES
 ================================ */
-/* @media (max-width: 1195px) { */
-
-/* Tablettes (≤1024px) */
+/* Tablettes (≤1225px) */
 @media (max-width: 1225px) {
     .nav-bar {
         font-size: 1.1rem;
@@ -1061,35 +1049,3 @@ footer a {
         width: 100%;
     }
 }
-
-/* === Google Translate custom style === */
-.goog-te-gadget-simple {
-    background-color: transparent !important;
-    border: none !important;
-}
-
-.goog-te-gadget-icon {
-  display: none !important;
-}
-
-.goog-te-gadget-simple a, .goog-te-gadget-simple a span {
-    color: #fff !important;
-}
-
-.goog-te-gadget-simple a span:first-child {
-    font-size: 0 !important;
-}
-
-.goog-te-gadget-simple a span:first-child:after {
-    content: "Langue" !important;
-    font-size: .9rem !important;
-}
-
-/* Masquer la bannière Google */
-/* .goog-te-banner-frame.skiptranslate {
-  display: none !important;
-} */
-body {
-  bottom: 0px !important;
-}
-
