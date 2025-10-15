@@ -12,7 +12,7 @@ const urlsToCache = [
   "/scripts/app.js",
   "/scripts/translate.js",
   "/images/logo_qadash.jpg",
-  "/images/shofar_blanc.png",
+  "/images/Qadash new logo-02.png",
 ];
 
 // Installation – mise en cache initiale
