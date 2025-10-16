@@ -575,7 +575,8 @@ body {
 .enseignements .video iframe,
 .animations .video iframe {
     width: 90%;
-    aspect-ratio: 16 / 9; /* garantit le format YouTube */
+    aspect-ratio: 16 / 9;
+    /* garantit le format YouTube */
     border-radius: .5rem;
     transition: transform 0.3s ease;
 }
@@ -608,10 +609,39 @@ body {
     margin-bottom: 25px;
 }
 
-.section-header h2 {
+.livres h2 {
     font-size: 1.8rem;
     font-weight: 600;
     color: #127484;
+}
+
+.livres .book1 {
+    margin: 10px 0 40px;
+    width: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.filters {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.filters input {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    width: 220px;
+}
+
+
+.filters input,
+.filters select {
+    padding: 8px;
+    border-radius: 6px;
+    outline: none;
 }
 
 /* .section-header span {
@@ -686,6 +716,37 @@ body {
 
 .book .btn:hover {
     background: #DE8717;
+}
+
+.pagination {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.pagination button.btn {
+    background: #127484;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.3s ease;
+}
+
+.pagination button.btn:hover:not(:disabled) {
+    background: #DE8717;
+}
+
+.pagination button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.pagination #pageInfo {
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 0 10px;
 }
 
 /*PAGE ANIMATIONS*/
