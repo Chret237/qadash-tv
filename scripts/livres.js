@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // --- Charger les livres ---
   try {
-    const response = await fetch("/data/livres.json");
+    const response = await fetch("../data/livres.json");
     livres = await response.json();
 
     // Trier du plus récent au plus ancien
@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       compteur.textContent = "";
       document.querySelector("h2").textContent = 'Recommandé';
       document.querySelector(".book1").innerHTML = `<div class="book">
-            <img src="/images/bym.jpg" alt="Bible de Yéhoshoua ha Mashiah" />
+            <img src="../images/bym.jpg" alt="Bible de Yéhoshoua ha Mashiah" />
             <h3>
               Bible de Yéhoshoua ha Mashiah (BYM)
             </h3>

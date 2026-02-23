@@ -1,18 +1,18 @@
 const CACHE_NAME = "qadash-tv-" + new Date().toISOString().slice(0, 10);
 
 const urlsToCache = [
-  "/",
-  "/index.html",
-  "/pages/livres.html",
-  "/pages/documentaires.html",
-  "/pages/animations.html",
-  "/pages/enseignements.html",
-  "/styles.css",
-  "/main.js",
-  "/scripts/app.js",
-  "/scripts/translate.js",
-  "/images/logo_qadash.jpg",
-  "/images/Qadash new logo-02.png",
+  "./",
+  "./index.html",
+  "./pages/livres.html",
+  "./pages/documentaires.html",
+  "./pages/animations.html",
+  "./pages/enseignements.html",
+  "./styles.css",
+  "./main.js",
+  "./scripts/app.js",
+  "./scripts/translate.js",
+  "./images/logo_qadash.jpg",
+  "./images/Qadash new logo-02.png",
 ];
 
 // Installation – mise en cache initiale

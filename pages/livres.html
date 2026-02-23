@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <!-- Lien vers le manifest PWA-->
-    <link rel="manifest" href="/manifest.json" />
+    <link rel="manifest" href="../manifest.json" />
     <meta name="theme-color" content="#127484" />
 
     <meta
@@ -14,10 +14,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Lien vers la feuille de style principale -->
-    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="../styles.css" />
 
     <!-- font awesome file link  -->
-    <link rel="stylesheet" href="/fontawesome-free-6.7.2-web/css/all.css" />
+    <link rel="stylesheet" href="../fontawesome-free-6.7.2-web/css/all.css" />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -27,8 +27,8 @@
       rel="stylesheet"
     />
 
-    <!-- SVG Icon (preferred for modern browsers) -->
-    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../icons/icon.ico" />
 
     <title>Qadash TV - Livres</title>
   </head>
@@ -38,9 +38,9 @@
         <i class="fas fa-bars"></i>
       </div>
       <div class="logo">
-        <a href="/index.html"
+        <a href="../index.html"
           ><img
-            src="/images/logo_qadash.jpg"
+            src="../images/logo_qadash.jpg"
             alt=""
             srcset=""
             height="79"
@@ -48,12 +48,12 @@
         /></a>
       </div>
       <nav class="nav-menu">
-        <a class="nav-link" href="/index.html"> Accueil </a>
-        <a class="nav-link" href="/pages/documentaires.html"> Documentaires </a>
-        <a class="nav-link" href="/pages/enseignements.html"> Enseignements </a>
+        <a class="nav-link" href="../index.html"> Accueil </a>
+        <a class="nav-link" href="../pages/documentaires.html"> Documentaires </a>
+        <a class="nav-link" href="../pages/enseignements.html"> Enseignements </a>
         <a class="nav-link active" href="#"> Livres </a>
-        <a class="nav-link" href="/pages/animations.html"> Animations </a>
-        <a class="nav-link" href="/index.html#s5"> Contacts </a>
+        <a class="nav-link" href="../pages/animations.html"> Animations </a>
+        <a class="nav-link" href="../index.html#s5"> Contacts </a>
       </nav>
       <div class="language">
         <i class="fa-solid fa-globe"></i>
@@ -67,12 +67,8 @@
           <h1>Tous les Livres</h1>
 
           <div class="filters">
-            <input
-              type="text"
-              id="bookSearch"
-              placeholder="Rechercher un livre ou un auteur..."
-              "
-            />
+            <input type="text" id="bookSearch" placeholder="Rechercher un livre
+            ou un auteur..." " />
 
             <select id="authorFilter">
               <option value="">Tous les auteurs</option>
@@ -84,27 +80,26 @@
           </div>
         </div>
 
-        <h2>
-          Recommandé
-        </h2>
+        <h2>Recommandé</h2>
 
         <div class="book1">
           <div class="book">
-            <img src="/images/bym.jpg" alt="Bible de Yéhoshoua ha Mashiah" />
-            <h3>
-              Bible de Yéhoshoua ha Mashiah (BYM)
-            </h3>
+            <img src="../images/bym.jpg" alt="Bible de Yéhoshoua ha Mashiah" />
+            <h3>Bible de Yéhoshoua ha Mashiah (BYM)</h3>
             <p>Auteur: Shora KUETU</p>
-            <p style="color: #127484;">Langue: Français</p>
-            <a class="btn" href="https://www.bibledejesuschrist.org/lire.html" target="_blank" >Lire en ligne</a>
+            <p style="color: #127484">Langue: Français</p>
+            <a
+              class="btn"
+              href="https://www.bibledejesuschrist.org/lire.html"
+              target="_blank"
+              >Lire en ligne</a
+            >
           </div>
         </div>
 
         <h2>Derniers Ajouts</h2>
 
-        <div class="book-list">
-          
-        </div>
+        <div class="book-list"></div>
 
         <div class="pagination">
           <button id="prevPage" class="btn">Précédent</button>
@@ -137,11 +132,10 @@
       </p>
     </footer>
 
-    <script src="/main.js"></script>
-    <script src="/scripts/app.js"></script>
-    <script src="/scripts/translate.js"></script>
+    <script src="../main.js"></script>
+    <script src="../scripts/app.js"></script>
+    <script src="../scripts/translate.js"></script>
     <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-    <script src="/scripts/livres.js"></script>
-
+    <script src="../scripts/livres.js"></script>
   </body>
 </html>

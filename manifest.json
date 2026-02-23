@@ -1,21 +1,23 @@
 {
     "name": "Qadash TV",
     "short_name": "QadashTV",
-    "start_url": "/",
+    "start_url": "./index.html",
+    "id": "./index.html",
     "display": "standalone",
     "background_color": "#127484",
-    "theme_color": "#127484",
+    "theme_color": "#197a86",
+    "orientation": "portrait-primary",
     "description": "Ce site a pour seul but de promouvoir la parole véritable de YEHOSHOUA (Jesus).",
     "icons": [
         {
-            "src": "images/logo_qadash.jpg",
-            "sizes": "192x192",
-            "type": "image/jpeg"
+            "src": "./icons/icon-192x192.png",
+            "type": "image/png",
+            "sizes": "192x192"
         },
         {
-            "src": "images/Qadash new logo-02.png",
-            "sizes": "512x512",
-            "type": "image/png"
+            "src": "./icons/icon-64x64.png",
+            "type": "image/png",
+            "sizes": "64x64"
         }
     ]
 }
