@@ -759,6 +759,7 @@ footer {
     padding: 2rem 0;
     background-color: #DE8717;
     color: #fff;
+    
 }
 
 footer p {
@@ -1128,9 +1129,9 @@ footer a {
 
 .album-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
-    margin-top: 2rem;
+    margin: 2rem 1rem;
     justify-items: center;
 }
 
@@ -1139,7 +1140,7 @@ footer a {
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
     border-radius: 12px;
     overflow: hidden;
-    width: 280px;
+    width: 300px;
     transition: transform 0.3s ease;
 }
 
