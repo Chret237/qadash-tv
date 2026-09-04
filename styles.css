@@ -870,6 +870,12 @@ footer a {
         width: 45%;
     }
 
+    /* Ajustements sliders pour tablettes */
+    .announcements-slider,
+    .events-slider {
+        height: 65vh;
+    }
+
     footer {
         font-size: 14px;
         gap: 0.5rem;
@@ -933,6 +939,12 @@ footer a {
         font-size: 1.8rem;
     }
 
+    /* Ajustements sliders pour petits smartphones */
+    .announcements-slider,
+    .events-slider {
+        height: 60vh;
+    }
+
     .nav {
         font-size: 2rem;
         width: 2.5rem;
@@ -987,6 +999,37 @@ footer a {
     .animations .video p {
         font-size: 0.9rem;
         height: auto;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .announcements-slider,
+    .events-slider {
+        height: 50vh;
+    }
+
+    .announcements-slide,
+    .event-slide {
+        background-position: center;
+    }
+
+    .nav {
+        font-size: 2rem;
+        width: 2.6rem;
+        height: 2.6rem;
+        line-height: 2.6rem;
+    }
+
+    .dots {
+        bottom: 1rem;
+    }
+
+    /* s'assurer que l'image couvre et soit centrée */
+    .announcements-slide,
+    .event-slide {
+        background-size: cover;
+        background-position: center center;
     }
 }
 
@@ -1065,6 +1108,12 @@ footer a {
     .contacts div {
         width: 100%;
     }
+
+    /* Ajustements sliders pour très petits écrans */
+    .announcements-slider,
+    .events-slider {
+        height: 45vh;
+    }
 }
 
 @media (max-width: 320px) {
@@ -1108,6 +1157,12 @@ footer a {
     .hero p:first-child {
         margin-bottom: 30px;
         font-size: .9rem;
+
+        /* Ajustement ultime pour écrans très étroits */
+        .announcements-slider,
+        .events-slider {
+            height: 40vh;
+        }
     }
 
     .hero p:first-child {
