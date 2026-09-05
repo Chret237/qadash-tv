@@ -48,15 +48,47 @@ self.addEventListener("fetch", (event) => {
   if (!event.request.url.startsWith(self.location.origin)) {
     return;
   }
+  // Only handle GET requests
+  if (event.request.method !== 'GET') return;
+
+  // Bypass service worker for range requests and video resources to avoid
+  // interfering with streaming/partial responses (206)
+  try {
+    const rangeHeader = event.request.headers.get('range');
+    if (rangeHeader) {
+      event.respondWith(fetch(event.request));
+      return;
+    }
+    if (event.request.destination === 'video') {
+      event.respondWith(fetch(event.request));
+      return;
+    }
+  } catch (e) {
+    // if headers are not accessible for any reason, fall through to normal handling
+    console.warn('SW: error checking request headers/destination', e);
+  }
 
   event.respondWith(
     fetch(event.request)
       .then((response) => {
-        // met à jour le cache
-        const cloned = response.clone();
-        caches
-          .open(CACHE_NAME)
-          .then((cache) => cache.put(event.request, cloned));
+        // Only cache successful full responses (status 200)
+        try {
+          if (response && response.ok && response.status === 200) {
+            const cloned = response.clone();
+            caches
+              .open(CACHE_NAME)
+              .then((cache) => cache.put(event.request, cloned))
+              .catch((err) => {
+                // don't break the response if cache.put fails
+                console.warn('Cache put failed:', err);
+              });
+          } else {
+            // skip caching partial (206) or other responses
+            // useful to avoid "Partial response (status code 206) is unsupported"
+          }
+        } catch (e) {
+          console.warn('Error handling cache for', event.request.url, e);
+        }
         return response;
       })
       .catch(() => caches.match(event.request)) // si offline → version cache

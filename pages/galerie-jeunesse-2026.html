@@ -24,10 +24,7 @@
         <h1>Rencontre Jeunesse – Édition 2026</h1>
       </div>
       <hr />
-      <div class="documentaires">
-          <img src="../images/shofar_blanc.png" alt="" />
-          <p>Aucune images disponible pour le moment.</p>
-      </div>
+      <section class="gallery-grid" id="gallery-grid"></section>
     </main>
 
     <footer>
@@ -53,20 +50,102 @@
       </p>
     </footer>
 
+    
     <script>
-      const gallery = document.getElementById("gallery-grid");
-      const totalImages = 41;
-      const imageFolder = "../images/jeunesse2026";
+      (function () {
+        document.addEventListener("DOMContentLoaded", () => {
+          const gallery = document.getElementById("gallery-grid");
+          const folder = "../images/jeunesse2026";
 
-      for (let i = 1; i <= totalImages; i += 1) {
-        const img = document.createElement("img");
-        img.src = `${imageFolder}/img${i}.jpg`;
-        img.alt = `Rencontre Jeunesse 2026, photo ${i}`;
-        img.style.width = "100%";
-        img.style.height = "100%";
-        img.style.objectFit = "contain";
-        gallery.appendChild(img);
-      }
+          if (!gallery) return;
+
+          function resolveSrc(s) {
+            if (!s) return "";
+            if (/^https?:\/\//i.test(s) || s.startsWith("/")) return s;
+            return `${folder}/${s}`;
+          }
+
+          async function buildGallery() {
+            try {
+              const res = await fetch(`${folder}/index.json`);
+              if (!res.ok) throw new Error("index not found");
+              const list = await res.json();
+              if (!Array.isArray(list) || list.length === 0) {
+                gallery.innerHTML =
+                  "<p>Aucun média défini dans index.json.</p>";
+                return;
+              }
+
+              gallery.innerHTML = "";
+              list.forEach((item) => {
+                let src, type, alt;
+                if (typeof item === "string") src = resolveSrc(item);
+                else if (item && typeof item === "object") {
+                  src = resolveSrc(item.src || item.path || "");
+                  type = item.type;
+                  alt = item.alt || "";
+                }
+                if (!src) return;
+                if (!type) {
+                  const ext = (src.split(".").pop() || "").toLowerCase();
+                  type = ["mp4", "webm", "ogg", "mov"].includes(ext)
+                    ? "video"
+                    : "image";
+                }
+
+                const wrap = document.createElement("div");
+                wrap.className = "thumb-wrap";
+                const el = document.createElement("img");
+                // use a custom thumbnail when provided in index.json
+                let thumbSrc = (item && item.thumb) ? resolveSrc(item.thumb) : null;
+                if (type === "video" && !thumbSrc) {
+                  thumbSrc = "https://placehold.co/600x400?text=video";
+                } 
+                else if (type === "external-image" && !thumbSrc) {
+                  thumbSrc = "https://placehold.co/300x400?text=image";
+                }
+                else if (type === "image" && !thumbSrc) {
+                  thumbSrc = src;
+                }
+                el.src = thumbSrc;
+                el.alt = alt || src;
+                el.dataset.type = type;
+                el.dataset.src = src;
+                wrap.appendChild(el);
+                if (type === "video") {
+                  const overlay = document.createElement("div");
+                  overlay.className = "video-overlay";
+                  overlay.innerHTML = '<div class="play"><i class="fa fa-play-circle"></i></div>';
+                  wrap.appendChild(overlay);
+                }
+                gallery.appendChild(wrap);
+              });
+            } catch (err) {
+              gallery.innerHTML = "<p>Impossible de charger index.json.</p>";
+            }
+          }
+
+          gallery.addEventListener("click", (e) => {
+            const img = e.target.closest("img");
+            if (!img) return;
+            const src = img.dataset.src || img.src;
+            try {
+              const w = window.open(src, "_parent");
+              if (w) w.opener = null;
+            } catch (err) {
+              const a = document.createElement("a");
+              a.href = src;
+              a.target = "_parent";
+              a.rel = "noopener noreferrer";
+              document.body.appendChild(a);
+              a.click();
+              a.remove();
+            }
+          });
+
+          buildGallery();
+        });
+      })();
     </script>
   </body>
 </html>
