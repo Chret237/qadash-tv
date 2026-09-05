@@ -1,6 +1,6 @@
 [
     {
-        "src": "video1.mp4",
+        "src": "video1.MP4",
         "type": "video",
         "thumb": "../thumbnail.jpg",
         "alt": "video1"
