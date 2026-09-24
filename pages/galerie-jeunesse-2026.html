@@ -14,7 +14,7 @@
           ><img src="../images/logo_qadash.jpg" alt="Qadash TV" height="70"
         /></a>
         <a href="../pages/rencontre-jeunesse.html" class="back-link">
-              <i class="fa fa-chevron-left"></i>
+          <i class="fa fa-chevron-left"></i>
         </a>
       </div>
     </header>
@@ -50,7 +50,6 @@
       </p>
     </footer>
 
-    
     <script>
       (function () {
         document.addEventListener("DOMContentLoaded", () => {
@@ -97,14 +96,13 @@
                 wrap.className = "thumb-wrap";
                 const el = document.createElement("img");
                 // use a custom thumbnail when provided in index.json
-                let thumbSrc = (item && item.thumb) ? resolveSrc(item.thumb) : null;
+                let thumbSrc =
+                  item && item.thumb ? resolveSrc(item.thumb) : null;
                 if (type === "video" && !thumbSrc) {
                   thumbSrc = "https://placehold.co/600x400?text=video";
-                } 
-                else if (type === "external-image" && !thumbSrc) {
+                } else if (type === "external-image" && !thumbSrc) {
                   thumbSrc = "https://placehold.co/300x400?text=image";
-                }
-                else if (type === "image" && !thumbSrc) {
+                } else if (type === "image" && !thumbSrc) {
                   thumbSrc = src;
                 }
                 el.src = thumbSrc;
@@ -115,7 +113,8 @@
                 if (type === "video") {
                   const overlay = document.createElement("div");
                   overlay.className = "video-overlay";
-                  overlay.innerHTML = '<div class="play"><i class="fa fa-play-circle"></i></div>';
+                  overlay.innerHTML =
+                    '<div class="play"><i class="fa fa-play-circle"></i></div>';
                   wrap.appendChild(overlay);
                 }
                 gallery.appendChild(wrap);
@@ -129,6 +128,6 @@
         });
       })();
     </script>
-    <script src="../main.js"></script>
+    <script defer src="../main.js"></script>
   </body>
 </html>
