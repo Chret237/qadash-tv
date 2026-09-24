@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
@@ -96,14 +96,13 @@
                 wrap.className = "thumb-wrap";
                 const el = document.createElement("img");
                 // use a custom thumbnail when provided in index.json
-                let thumbSrc = (item && item.thumb) ? resolveSrc(item.thumb) : null;
+                let thumbSrc =
+                  item && item.thumb ? resolveSrc(item.thumb) : null;
                 if (type === "video" && !thumbSrc) {
                   thumbSrc = "https://placehold.co/600x400?text=video";
-                } 
-                else if (type === "external-image" && !thumbSrc) {
+                } else if (type === "external-image" && !thumbSrc) {
                   thumbSrc = "https://placehold.co/300x400?text=image";
-                }
-                else if (type === "image" && !thumbSrc) {
+                } else if (type === "image" && !thumbSrc) {
                   thumbSrc = src;
                 }
                 el.src = thumbSrc;
@@ -114,7 +113,8 @@
                 if (type === "video") {
                   const overlay = document.createElement("div");
                   overlay.className = "video-overlay";
-                  overlay.innerHTML = '<div class="play"><i class="fa fa-play-circle"></i></div>';
+                  overlay.innerHTML =
+                    '<div class="play"><i class="fa fa-play-circle"></i></div>';
                   wrap.appendChild(overlay);
                 }
                 gallery.appendChild(wrap);
@@ -124,27 +124,10 @@
             }
           }
 
-          gallery.addEventListener("click", (e) => {
-            const img = e.target.closest("img");
-            if (!img) return;
-            const src = img.dataset.src || img.src;
-            try {
-              const w = window.open(src, "_parent");
-              if (w) w.opener = null;
-            } catch (err) {
-              const a = document.createElement("a");
-              a.href = src;
-              a.target = "_parent";
-              a.rel = "noopener noreferrer";
-              document.body.appendChild(a);
-              a.click();
-              a.remove();
-            }
-          });
-
           buildGallery();
         });
       })();
     </script>
+    <script src="../main.js"></script>
   </body>
 </html>

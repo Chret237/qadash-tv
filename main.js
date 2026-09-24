@@ -47,12 +47,12 @@ function qadashSlider(sectionSelector, slideSelector) {
 
   function showSlide(i) {
     slides.forEach((s, idx) => {
-    s.classList.remove("active", "prev");
-    if (idx === i) s.classList.add("active");
-    else if (idx === (i - 1 + slides.length) % slides.length)
-      s.classList.add("prev");
-  });
-  dots.forEach((d, idx) => d.classList.toggle("active", idx === i));
+      s.classList.remove("active", "prev");
+      if (idx === i) s.classList.add("active");
+      else if (idx === (i - 1 + slides.length) % slides.length)
+        s.classList.add("prev");
+    });
+    dots.forEach((d, idx) => d.classList.toggle("active", idx === i));
   }
 
   function nextSlide() {
@@ -89,7 +89,7 @@ function qadashSlider(sectionSelector, slideSelector) {
       index = i;
       showSlide(index);
       startAuto();
-    })
+    }),
   );
 
   section.addEventListener("mouseenter", stopAuto);
@@ -99,8 +99,122 @@ function qadashSlider(sectionSelector, slideSelector) {
   startAuto();
 }
 
+function getBackgroundImageUrl(element) {
+  const value = window.getComputedStyle(element).backgroundImage;
+  const match = value.match(/url\((['"]?)(.*?)\1\)/i);
+  return match ? match[2] : "";
+}
+
+function ensureImageLightbox() {
+  let lightbox = document.getElementById("qadash-image-lightbox");
+
+  if (!lightbox) {
+    lightbox = document.createElement("div");
+    lightbox.id = "qadash-image-lightbox";
+    lightbox.className = "image-lightbox";
+    lightbox.innerHTML = `
+      <div class="image-lightbox-backdrop"></div>
+      <div class="image-lightbox-content">
+        <button class="image-lightbox-close" type="button" aria-label="Fermer la vue agrandie">×</button>
+        <img src="" alt="Vue agrandie" />
+      </div>
+    `;
+
+    const closeBtn = lightbox.querySelector(".image-lightbox-close");
+    closeBtn.addEventListener("click", () => {
+      lightbox.classList.remove("active");
+      document.body.style.overflow = "";
+    });
+
+    lightbox.addEventListener("click", (event) => {
+      if (
+        event.target === lightbox ||
+        event.target.classList.contains("image-lightbox-backdrop")
+      ) {
+        lightbox.classList.remove("active");
+        document.body.style.overflow = "";
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        lightbox.classList.remove("active");
+        document.body.style.overflow = "";
+      }
+    });
+
+    document.body.appendChild(lightbox);
+  }
+
+  return lightbox;
+}
+
+function openImageLightbox(src, alt = "Image agrandie") {
+  const lightbox = ensureImageLightbox();
+  const img = lightbox.querySelector("img");
+
+  if (!src) return;
+
+  img.src = src;
+  img.alt = alt;
+  lightbox.classList.add("active");
+  document.body.style.overflow = "hidden";
+}
+
+function bindImageLightbox() {
+  document
+    .querySelectorAll('.gallery-grid img[data-type="image"]')
+    .forEach((img) => {
+      img.style.cursor = "pointer";
+      img.addEventListener("click", (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        const src = img.dataset.src || img.src;
+        openImageLightbox(src, img.alt || "Image de galerie");
+      });
+    });
+
+  document.querySelectorAll(".announcements-slide").forEach((slide) => {
+    slide.style.cursor = "pointer";
+    slide.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+
+      const src = getBackgroundImageUrl(slide);
+      if (!src) return;
+
+      const title =
+        slide.querySelector("h2")?.textContent || "Image de mise en avant";
+      openImageLightbox(src, title);
+    });
+  });
+}
+
+function playGalleryVideo() {
+  const gallery = document.getElementById("gallery-grid");
+  gallery.addEventListener("click", (e) => {
+    const img = e.target.closest('img[data-type="video"]');
+    if (!img) return;
+    const src = img.dataset.src || img.src;
+    try {
+      const w = window.open(src, "_parent");
+      if (w) w.opener = null;
+    } catch (err) {
+      const a = document.createElement("a");
+      a.href = src;
+      a.target = "_parent";
+      a.rel = "noopener noreferrer";
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+    }
+  });
+}
+
 /* Initialisation */
 window.addEventListener("load", () => {
   qadashSlider(".announcements-slider", ".announcements-slide");
   qadashSlider(".events-slider", ".event-slide");
+  bindImageLightbox();
+  playGalleryVideo();
 });

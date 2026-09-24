@@ -124,27 +124,10 @@
             }
           }
 
-          gallery.addEventListener("click", (e) => {
-            const img = e.target.closest("img");
-            if (!img) return;
-            const src = img.dataset.src || img.src;
-            try {
-              const w = window.open(src, "_parent");
-              if (w) w.opener = null;
-            } catch (err) {
-              const a = document.createElement("a");
-              a.href = src;
-              a.target = "_parent";
-              a.rel = "noopener noreferrer";
-              document.body.appendChild(a);
-              a.click();
-              a.remove();
-            }
-          });
-
           buildGallery();
         });
       })();
     </script>
+    <script src="../main.js"></script>
   </body>
 </html>
