@@ -192,7 +192,7 @@ function bindImageLightbox() {
 
 function playGalleryVideo() {
   const gallery = document.getElementById("gallery-grid");
-  gallery.addEventListener("click", (e) => {
+  gallery?.addEventListener("click", (e) => {
     const img = e.target.closest('img[data-type="video"]');
     if (!img) return;
     const src = img.dataset.src || img.src;
