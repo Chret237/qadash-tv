@@ -26,8 +26,8 @@ if (burger && navMenu) {
 }
 
 window.onscroll = () => {
-  burger.classList.remove("fa-times");
-  navMenu.classList.remove("active");
+  burger?.classList.remove("fa-times");
+  navMenu?.classList.remove("active");
 };
 
 /* ===========================
