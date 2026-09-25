@@ -1,6 +1,46 @@
 [
     {
-        "src": "/images/l16.png",
+        "src": "/images/livres/l21.png",
+        "titre": "LA COURONNE ET LE TEMOIGNAGE",
+        "auteur": "Brian Monthé",
+        "langue": "Français",
+        "lien": "https://drive.google.com/file/d/1cw4KDOtebWDzxCYJzEfHl42qXPoQBOkW/view?usp=sharing",
+        "date": "2026-09-25"
+    },
+    {
+        "src": "/images/livres/l20.png",
+        "titre": "La Taupe",
+        "auteur": "BATOU STÉPHANOS",
+        "langue": "Français",
+        "lien": "https://drive.google.com/file/d/1cTF-t6BzOy7kYuem03HhcpRmZqHUnxmm/view?usp=sharing",
+        "date": "2026-09-25"
+    },
+    {
+        "src": "/images/livres/l19.png",
+        "titre": "La Culture Africaine dans l'Église",
+        "auteur": "Pierre MAVOUNGOU",
+        "langue": "Français",
+        "lien": "https://drive.google.com/file/d/16ffn_Ig_RF12GXXRrBKT4m5kDNjPpXPN/view?usp=sharing",
+        "date": "2026-09-25"
+    },
+    {
+        "src": "/images/livres/l18.png",
+        "titre": "LE VRAI DISCIPLE DE JESUS CHRIST",
+        "auteur": "Pierre MAVOUNGOU",
+        "langue": "Français",
+        "lien": "https://drive.google.com/file/d/1Ys7bSk678Ljj-8drfXPFExDCmjny-jdU/view?usp=sharing",
+        "date": "2026-09-25"
+    },
+    {
+        "src": "/images/livres/l17.png",
+        "titre": "SORTIR DE LA PEUR",
+        "auteur": "STEPHANIE LYDIA",
+        "langue": "Français",
+        "lien": "https://drive.google.com/file/d/1_CRrgvdN1brgU4OTLVj_OrYgjSx2dn_A/view?usp=sharing",
+        "date": "2026-09-25"
+    },
+    {
+        "src": "/images/livres/l16.png",
         "titre": "HISTOIRE DE L'ÉGLISE: L'EVANGILE EN AFRIQUE",
         "auteur": "BIBLIOTHEQUE LE PAIN2VIE",
         "langue": "Français",
@@ -8,7 +48,7 @@
         "date": "2025-10-16"
     },
     {
-        "src": "/images/l15.png",
+        "src": "/images/livres/l15.png",
         "titre": "La Scelta del Coniuge in Mashiah (Cristo)",
         "auteur": "Brice GIEYANME",
         "langue": "Italien",
@@ -16,7 +56,7 @@
         "date": "2025-10-16"
     },
     {
-        "src": "/images/l14.png",
+        "src": "/images/livres/l14.png",
         "titre": "Le Opere della Zizzania in Chiesa",
         "auteur": "Brice GIEYANME",
         "langue": "Italien",
@@ -24,7 +64,7 @@
         "date": "2025-10-16"
     },
     {
-        "src": "/images/l13.png",
+        "src": "/images/livres/l13.png",
         "titre": "La Consommation du Vin en Milieu Chrétien",
         "auteur": "Brice GIEYANME",
         "langue": "Français",
@@ -32,7 +72,7 @@
         "date": "2025-10-16"
     },
     {
-        "src": "/images/l12.png",
+        "src": "/images/livres/l12.png",
         "titre": "Les œuvres de l'Esprit dans l'Église",
         "auteur": "Brice GIEYANME",
         "langue": "Français",
@@ -40,7 +80,7 @@
         "date": "2025-10-16"
     },
     {
-        "src": "/images/l11.png",
+        "src": "/images/livres/l11.png",
         "titre": "Le Guide du Chrétien",
         "auteur": "Brice GIEYANME",
         "langue": "Français",
@@ -48,7 +88,7 @@
         "date": "2025-10-16"
     },
     {
-        "src": "/images/l8.png",
+        "src": "/images/livres/l8.png",
         "titre": "La DOT : Sorcellerie ou Recommandation Biblique ?",
         "auteur": "Brice GIEYANME",
         "langue": "Français",
@@ -56,7 +96,7 @@
         "date": "2025-10-16"
     },
     {
-        "src": "/images/l10.png",
+        "src": "/images/livres/l10.png",
         "titre": "La Divinità di Yehoshua Mashiah (Gesù Cristo)",
         "auteur": "Brice GIEYANME",
         "langue": "Italien",
@@ -64,7 +104,7 @@
         "date": "2025-10-16"
     },
     {
-        "src": "/images/l1.png",
+        "src": "/images/livres/l1.png",
         "titre": "OURIM & THOUMMIM",
         "auteur": "Brian Monthé",
         "langue": "Français",
@@ -72,7 +112,7 @@
         "date": "2025-10-14"
     },
     {
-        "src": "/images/l9.png",
+        "src": "/images/livres/l9.png",
         "titre": "LES ADORATEURS QUE LE MATTRE DEMANDE",
         "auteur": "JSB - Jesus Sorce de Bénédiction",
         "langue": "Français",
@@ -80,7 +120,7 @@
         "date": "2025-10-16"
     },
     {
-        "src": "/images/l3.png",
+        "src": "/images/livres/l3.png",
         "titre": "L'ANIMALITÉ DE L'ÉTRE HUMAIN",
         "auteur": "Shora KUETU",
         "langue": "Français",
@@ -88,7 +128,7 @@
         "date": "2025-10-14"
     },
     {
-        "src": "/images/l2.png",
+        "src": "/images/livres/l2.png",
         "titre": "Le Choix Du Conjoint En Mashiah",
         "auteur": "Brice GIEYANME",
         "langue": "Français",
@@ -96,7 +136,7 @@
         "date": "2025-10-14"
     },
     {
-        "src": "/images/l7.png",
+        "src": "/images/livres/l7.png",
         "titre": "LE SEL",
         "auteur": "Brian Monthé",
         "langue": "Français",
@@ -104,7 +144,7 @@
         "date": "2025-10-15"
     },
     {
-        "src": "/images/l6.png",
+        "src": "/images/livres/l6.png",
         "titre": "La Divinité de Yéhoshoua Mashiah (Jésus-Christ)",
         "auteur": "Brice GIEYANME",
         "langue": "Français",
@@ -112,7 +152,7 @@
         "date": "2025-10-15"
     },
     {
-        "src": "/images/l5.png",
+        "src": "/images/livres/l5.png",
         "titre": "LA MARCHE CHRÉTIENNE",
         "auteur": "Brian Monthé",
         "langue": "Français",
@@ -120,7 +160,7 @@
         "date": "2025-10-15"
     },
     {
-        "src": "/images/l4.png",
+        "src": "/images/livres/l4.png",
         "titre": "COMPOSER UN CHANT NOUVEAU",
         "auteur": "Junior Fritz MOUSSODOU MIHINDOU",
         "langue": "Français",
