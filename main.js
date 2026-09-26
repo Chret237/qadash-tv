@@ -47,10 +47,11 @@ function qadashSlider(sectionSelector, slideSelector) {
 
   function showSlide(i) {
     slides.forEach((s, idx) => {
-      s.classList.remove("active", "prev");
+      s.classList.remove("active", "prev", "next");
       if (idx === i) s.classList.add("active");
       else if (idx === (i - 1 + slides.length) % slides.length)
         s.classList.add("prev");
+      else if (idx === (i + 1) % slides.length) s.classList.add("next");
     });
     dots.forEach((d, idx) => d.classList.toggle("active", idx === i));
   }
