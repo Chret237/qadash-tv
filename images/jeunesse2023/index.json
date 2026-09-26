@@ -1,9 +1,9 @@
 [
     {
-        "src": "video1.MP4",
+        "src": "https://drive.google.com/file/d/1xqU82I1g_jZZg0WzDbTojIWP3__DgQ-8/view?usp=sharing",
         "type": "video",
         "thumb": "../thumbnail.jpg",
-        "alt": "video1"
+        "alt": "video g-drive"
     },
     "img4.jpg",
     "img3.jpg",
@@ -25,6 +25,12 @@
     "img18.jpg",
     "img19.jpg",
     "img20.jpg",
+    {
+        "src": "https://drive.google.com/file/d/15kRqGgpslq3Wa62E040PyH-9Id8E1_QR/view?usp=sharing",
+        "type": "video",
+        "thumb": "../thumbnail.jpg",
+        "alt": "video g-drive"
+    },
     "img21.jpg",
     "img22.jpg",
     "img23.jpg",

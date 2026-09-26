@@ -1,27 +1,81 @@
 [
     {
-        "src": "https://drive.google.com/file/d/1WwiF75kwpS9cLPB5Tt_6svXLn97v3LTu/view?usp=drive_link",
+        "src": "https://drive.google.com/file/d/1W3CWd324Aofw2OEaEkV05uZqm-MV0SWP/view?usp=drive_link",
         "type": "video",
         "thumb": "../thumbnail.jpg",
         "alt": "video g-drive"
     },
     "img4.jpg",
     "img3.jpg",
+    {
+        "src": "https://drive.google.com/file/d/1WwiF75kwpS9cLPB5Tt_6svXLn97v3LTu/view?usp=drive_link",
+        "type": "video",
+        "thumb": "../thumbnail.jpg",
+        "alt": "video g-drive"
+    },
     "img1.jpg",
     "img2.jpg",
+    {
+        "src": "https://drive.google.com/file/d/1X0v0mDmYXiDUL10m4FVNWARFEtvukQBr/view?usp=drive_link",
+        "type": "video",
+        "thumb": "../thumbnail.jpg",
+        "alt": "video g-drive"
+    },
     "img5.jpg",
     "img6.jpg",
+    {
+        "src": "https://drive.google.com/file/d/1Wv6PbwLMsFaXTmeSirYnDYVR9Xdf_8Y2/view?usp=drive_link",
+        "type": "video",
+        "thumb": "../thumbnail.jpg",
+        "alt": "video g-drive"
+    },
     "img7.jpg",
     "img8.jpg",
+    {
+        "src": "https://drive.google.com/file/d/1WrC82yLCSodRv0kO6O01MAuznvWYTcFq/view?usp=drive_link",
+        "type": "video",
+        "thumb": "../thumbnail.jpg",
+        "alt": "video g-drive"
+    },
     "img9.jpg",
     "img10.jpg",
+    {
+        "src": "https://drive.google.com/file/d/1X8qHv9oooOXlc4fzAb4t-UxXytXREtPW/view?usp=drive_link",
+        "type": "video",
+        "thumb": "../thumbnail.jpg",
+        "alt": "video g-drive"
+    },
     "img11.jpg",
     "img12.jpg",
+    {
+        "src": "https://drive.google.com/file/d/1XCCrNY8-z2L1W6dkUs1a4dgUgDpMIoYi/view?usp=drive_link",
+        "type": "video",
+        "thumb": "../thumbnail.jpg",
+        "alt": "video g-drive"
+    },
     "img13.jpg",
     "img14.jpg",
+    {
+        "src": "https://drive.google.com/file/d/1XDFAcdojduX20MG33jlzeEVC1atzP5Ki/view?usp=drive_link",
+        "type": "video",
+        "thumb": "../thumbnail.jpg",
+        "alt": "video g-drive"
+    },
     "img15.jpg",
     "img16.jpg",
+    {
+        "src": "https://drive.google.com/file/d/1VrwolIXxDKOmeMvU8H11tnop8gJI12AR/view?usp=drive_link",
+        "type": "video",
+        "thumb": "../thumbnail.jpg",
+        "alt": "video g-drive"
+    },
     "img17.jpg",
     "img18.jpg",
+    {
+        "src": "https://drive.google.com/file/d/1VyWIE1Rsry5oom43Q15l12vSN2AW4LKQ/view?usp=drive_link",
+        "type": "video",
+        "thumb": "../thumbnail.jpg",
+        "alt": "video g-drive"
+    },
     "img19.jpg"
 ]
