@@ -35,14 +35,14 @@
     font-style: normal; */
 
     /* .poppins-regular */
-    font-family: "Poppins", sans-serif;
+    /* font-family: "Poppins", sans-serif;
     font-weight: 400;
-    font-style: normal;
+    font-style: normal; */
 
     /* .poppins-medium */
-    /* font-family: "Poppins", sans-serif;
+    font-family: "Poppins", sans-serif;
     font-weight: 500;
-    font-style: normal; */
+    font-style: normal;
 
     /* .poppins-semibold */
     /* font-family: "Poppins", sans-serif;
@@ -118,9 +118,7 @@ body {
 
 h1,
 h2 {
-    font-family: "Poppins", sans-serif;
     font-weight: 700;
-    font-style: normal;
 }
 
 a {
@@ -224,32 +222,39 @@ a:last-child.active {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 5px;
     font-size: 1rem;
 }
 
-/* === Google Translate custom style === */
-.goog-te-gadget-simple {
-    background-color: transparent !important;
-    border: none !important;
+.language-switcher {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.18rem;
+    border: 1px solid rgba(18, 116, 132, 0.18);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.85);
+    box-shadow: 0 8px 18px rgba(18, 116, 132, 0.08);
 }
 
-.goog-te-gadget-icon {
-    display: none !important;
+.lang-btn {
+    border: 0;
+    background: transparent;
+    color: var(--primary);
+    font-weight: 700;
+    min-width: 2.6rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.4rem 0.6rem;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all 0.2s ease;
 }
 
-.goog-te-gadget-simple a,
-.goog-te-gadget-simple a span {
-    color: var(--white) !important;
-}
-
-.goog-te-gadget-simple a span:first-child {
-    font-size: 0 !important;
-}
-
-.goog-te-gadget-simple a span:first-child:after {
-    content: "Langue" !important;
-    font-size: .9rem !important;
+.lang-btn.active {
+    background: var(--primary);
+    color: #fff;
+    box-shadow: 0 8px 18px rgba(18, 116, 132, 0.2);
 }
 
 body {
@@ -301,6 +306,8 @@ body {
     font-size: clamp(1rem, 1.8vw, 1.3rem);
     color: var(--primary);
     margin-bottom: 0.75rem;
+    /* .poppins-regular */
+    font-weight: 400;
 }
 
 .hero h1 {
@@ -968,6 +975,17 @@ footer a {
         width: 35%;
     }
 
+    .language-switcher {
+        gap: 0.15rem;
+        padding: 0.15rem;
+    }
+
+    .lang-btn {
+        min-width: 2.25rem;
+        padding: 0.35rem 0.45rem;
+        font-size: 0.72rem;
+    }
+
     .language select {
         width: 40%;
         font-size: 0.9rem;
@@ -1144,6 +1162,17 @@ footer a {
 
     .language {
         width: 30%;
+    }
+
+    .language-switcher {
+        gap: 0.1rem;
+        padding: 0.12rem;
+    }
+
+    .lang-btn {
+        min-width: 2.05rem;
+        padding: 0.3rem 0.38rem;
+        font-size: 0.68rem;
     }
 
     .language select {
@@ -1468,4 +1497,19 @@ footer a {
 
 .image-lightbox-close:hover {
     background: #f2f2f2;
+}
+
+html[lang="fr"] [lang-en],
+html[lang="en"] [lang-fr] {
+    display: none;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+.gallery-language {
+    position: absolute;
+    right: 1rem;
+    width: auto;
 }

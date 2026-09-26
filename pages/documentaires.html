@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
   <head>
     <!-- Lien vers le manifest PWA-->
     <link rel="manifest" href="../manifest.json" />
@@ -48,30 +48,46 @@
         /></a>
       </div>
       <nav class="nav-menu">
-        <a class="nav-link" href="../index.html"> Accueil </a>
-        <a class="nav-link active" href="#"> Documentaires </a>
+        <a class="nav-link" href="../index.html"><span lang-fr>Accueil</span><span lang-en>Home</span></a>
+        <a class="nav-link active" href="#"><span lang-fr>Documentaires</span><span lang-en>Documentaries</span></a>
         <a class="nav-link" href="../pages/enseignements.html">
-          Enseignements
+          <span lang-fr>Enseignements</span><span lang-en>Teachings</span>
         </a>
-        <a class="nav-link" href="../pages/livres.html"> Livres </a>
-        <a class="nav-link" href="../pages/animations.html"> Animations </a>
-        <a class="nav-link" href="../index.html#s5"> Contacts </a>
+        <a class="nav-link" href="../pages/livres.html"><span lang-fr>Livres</span><span lang-en>Books</span></a>
+        <a class="nav-link" href="../pages/animations.html"><span lang-fr>Animations</span><span lang-en>Animations</span></a>
+        <a class="nav-link" href="../index.html#s5"><span lang-fr>Contacts</span><span lang-en>Contact</span></a>
       </nav>
       <div class="language">
-        <i class="fa-solid fa-globe"></i>
-        <div id="google_translate_element"></div>
+        <div class="language-switcher" aria-label="Sélecteur de langue">
+          <button
+            class="lang-btn active"
+            id="lang-fr"
+            type="button"
+            aria-pressed="true"
+          >
+            FR
+          </button>
+          <button
+            class="lang-btn"
+            id="lang-en"
+            type="button"
+            aria-pressed="false"
+          >
+            EN
+          </button>
+        </div>
       </div>
     </header>
 
     <main class="documentaires">
       <img src="../images/shofar_blanc.png" alt="" />
-      <p>À VENIR</p>
+      <p><span lang-fr>À VENIR</span><span lang-en>COMING SOON</span></p>
     </main>
 
     <footer>
-      <p>&copy; Qadash tv 2025 - Tout droits réservés</p>
+      <p><span lang-fr>&copy; Qadash tv 2025 - Tous droits réservés</span><span lang-en>&copy; Qadash TV 2025 - All rights reserved</span></p>
       <p>
-        Suivez -nous sur :
+        <span lang-fr>Suivez-nous sur :</span><span lang-en>Follow us on:</span>
         <a
           href="https://web.facebook.com/profile.php?id=61557829689735&mibextid=ZbWKwL&_rdc=1&_rdr#"
           target="_blank"
@@ -93,10 +109,5 @@
 
     <script defer src="../main.js"></script>
     <script defer src="../scripts/app.js"></script>
-    <script defer src="../scripts/translate.js"></script>
-    <script
-      defer
-      src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
-    ></script>
   </body>
 </html>

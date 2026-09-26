@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
   <head>
     <!-- Lien vers le manifest PWA-->
     <link rel="manifest" href="../manifest.json" />
@@ -41,54 +41,56 @@
         <a href="../index.html"><img src="../images/logo_qadash.jpg" alt="Qadash TV Logo" height="79" width="164"/></a>
       </div>
       <nav class="nav-menu">
-        <a class="nav-link" href="../index.html"> Accueil </a>
-        <a class="nav-link" href="../pages/documentaires.html"> Documentaires </a>
-        <a class="nav-link active" href="#"> Enseignements </a>
-        <a class="nav-link" href="../pages/livres.html"> Livres </a>
-        <a class="nav-link" href="../pages/animations.html"> Animations </a>
-        <a class="nav-link" href="../index.html#s5"> Contacts </a>
+        <a class="nav-link" href="../index.html"><span lang-fr>Accueil</span><span lang-en>Home</span></a>
+        <a class="nav-link" href="../pages/documentaires.html"><span lang-fr>Documentaires</span><span lang-en>Documentaries</span></a>
+        <a class="nav-link active" href="#"><span lang-fr>Enseignements</span><span lang-en>Teachings</span></a>
+        <a class="nav-link" href="../pages/livres.html"><span lang-fr>Livres</span><span lang-en>Books</span></a>
+        <a class="nav-link" href="../pages/animations.html"><span lang-fr>Animations</span><span lang-en>Animations</span></a>
+        <a class="nav-link" href="../index.html#s5"><span lang-fr>Contacts</span><span lang-en>Contact</span></a>
       </nav>
       <div class="language">
-        <i class="fa-solid fa-globe"></i>
-        <div id="google_translate_element"></div>
+        <div class="language-switcher" aria-label="Sélecteur de langue">
+          <button class="lang-btn active" id="lang-fr" type="button" aria-pressed="true">FR</button>
+          <button class="lang-btn" id="lang-en" type="button" aria-pressed="false">EN</button>
+        </div>
       </div>
     </header>
 
     <main class="enseignements">
       <!-- Dernières vidéos -->
       <section>
-        <h1>Dernières vidéos<hr></h1>
+        <h1><span lang-fr>Dernières vidéos</span><span lang-en>Latest videos</span><hr></h1>
         <div id="videos-enseignements" class="video-grid">
           <div class="video">
             <iframe width="560" height="315" src="https://www.youtube.com/embed/lK7Qth1g8U8?si=fezxbCEoq1Mi66jl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            <p>Comment derneurer en presence de YHWH</p>
+            <p><span lang-fr>Comment demeurer en présence de YHWH</span><span lang-en>How to remain in the presence of YHWH</span></p>
           </div>
           <div class="video">
             <iframe width="560" height="315" src="https://www.youtube.com/embed/IbMer2EP3Qg?si=Xd2MkBjIfqTvRBlh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            <p>Croire sans avoir vu...</p>
+            <p><span lang-fr>Croire sans avoir vu...</span><span lang-en>Believing without having seen...</span></p>
           </div>
 
           <div class="video">
             <iframe width="560" height="315" src="https://www.youtube.com/embed/UVUcW8unkHI?si=yNx1Ul7RhoRG0qRu" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             <p>
-              Le Service
+              <span lang-fr>Le service</span><span lang-en>Service</span>
             </p>
           </div>
           <div class="video">
             <iframe width="560" height="315" src="https://www.youtube.com/embed/kOTJL0vOBLE?si=mPGkoe1fII2uaSz1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             <p>
-              Quel est le probléme de l'Église d'aujourd'hui ?
+              <span lang-fr>Quel est le problème de l'Église d'aujourd'hui ?</span><span lang-en>What is the problem with today's Church?</span>
             </p>
           </div>
           <div class="video">
             <iframe width="560" height="315" src="https://www.youtube.com/embed/vBGAWZNK1qo?si=UswmjNrnt27J5v5L" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             <p>
-              La réalité du combat dans la vie chrétienne
+              <span lang-fr>La réalité du combat dans la vie chrétienne</span><span lang-en>The reality of the battle in Christian life</span>
             </p>
           </div>
           <div class="video">
             <iframe width="560" height="315" src="https://www.youtube.com/embed/F8WP1jMxysc?si=XSzEsOctBDYWsC18" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            <p>UN PROPHÉTE N'EST DÉSHONORÉ QUE DANS SON PAYS NATAL</p>
+            <p><span lang-fr>UN PROPHÈTE N'EST DÉSHONORÉ QUE DANS SON PAYS NATAL</span><span lang-en>A PROPHET IS NOT DISHONORED EXCEPT IN HIS HOMETOWN</span></p>
           </div>
         </div>
       </section>
@@ -96,53 +98,53 @@
       <!-- Liste de playlists -->
       <div id="playlists"></div>
       <section>
-        <h1>De Chérubin protecteur à serpent ancien<hr></h1>
+        <h1><span lang-fr>Du chérubin protecteur au serpent ancien</span><span lang-en>From the protective cherub to the ancient serpent</span><hr></h1>
         <div class="video-grid">
           <div class="video">
             <iframe width="560" height="315" src="https://www.youtube.com/embed/tlb-jGoxs9E?si=bZ3HDkFluZuTM9di" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            <p>Partie 1</p>
+            <p><span lang-fr>Partie 1</span><span lang-en>Part 1</span></p>
           </div>
           <div class="video">
             <iframe width="560" height="315" src="https://www.youtube.com/embed/bemy5wKxk-Y?si=kqdAsPqN8ub5S6bb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            <p>Partie 2</p>
+            <p><span lang-fr>Partie 2</span><span lang-en>Part 2</span></p>
           </div>
         </div>
       </section>
       <section>
-        <h1>La corruption des Pensées par le serpent ancien<hr></h1>
+        <h1><span lang-fr>La corruption des pensées par le serpent ancien</span><span lang-en>The corruption of thoughts by the ancient serpent</span><hr></h1>
         <div class="video-grid">
           <div class="video">
             <iframe width="560" height="315" src="https://www.youtube.com/embed/HLNfZD4PJpg?si=0m6hhK2tsHI3gyuZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            <p>Partie 1</p>
+            <p><span lang-fr>Partie 1</span><span lang-en>Part 1</span></p>
           </div>
           <div class="video">
             <iframe width="560" height="315" src="https://www.youtube.com/embed/UfuhMi3TTlM?si=JoqwtruZ_vK8LvnZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            <p>Partie 2</p>
+            <p><span lang-fr>Partie 2</span><span lang-en>Part 2</span></p>
           </div>
         </div> 
       </section>
       <section>
-        <h1>Enseignements 2024<hr></h1>
+        <h1><span lang-fr>Enseignements 2024</span><span lang-en>Teachings 2024</span><hr></h1>
         <div class="video-grid">
           <div class="video">
               <iframe width="560" height="315" src="https://www.youtube.com/embed/AqFZdeh-WOo?si=_qIKowLs34rIV3rk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-              <p>Les ames envenimées</p>
+              <p><span lang-fr>Les âmes envenimées</span><span lang-en>Poisoned souls</span></p>
           </div>
           <div class="video">
               <iframe width="560" height="315" src="https://www.youtube.com/embed/ZnTC-eDBJ2A?si=7SRWGN3Lz-Hb92Rw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-              <p>L'enjeu dans la foi chrétienne (La séparation)</p>
+              <p><span lang-fr>L'enjeu dans la foi chrétienne (la séparation)</span><span lang-en>The challenge of Christian faith (separation)</span></p>
           </div>
           <div class="video">
               <iframe width="560" height="315" src="https://www.youtube.com/embed/oOqG6N6K4wk?si=xdenvpJUV0VfXH8k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-              <p>Œuvrer pour le Seigneur malgré les difficultés</p>
+              <p><span lang-fr>Œuvrer pour le Seigneur malgré les difficultés</span><span lang-en>Working for the Lord despite difficulties</span></p>
         </div>
       </section>
       <section>
-        <h1>La Famille<hr></h1>
+        <h1><span lang-fr>La famille</span><span lang-en>The family</span><hr></h1>
         <div class="video-grid">
           <div class="video">
               <iframe width="560" height="315" src="https://www.youtube.com/embed/q9E1P4_WoJY?si=ekbSmFE-BNLTylTU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-              <p>LA FAMILLE : sans le Seigneur c'est l'échec I J-1</p>
+              <p><span lang-fr>LA FAMILLE : sans le Seigneur, c'est l'échec | J-1</span><span lang-en>THE FAMILY: without the Lord, it is failure | D-1</span></p>
           </div>
         </div>
       </section>
@@ -150,10 +152,10 @@
 
     <footer>
       <p>
-        &copy; Qadash tv 2025 - Tous droits réservés
+        <span lang-fr>&copy; Qadash tv 2025 - Tous droits réservés</span><span lang-en>&copy; Qadash TV 2025 - All rights reserved</span>
       </p>
       <p>
-        Suivez -nous sur : 
+        <span lang-fr>Suivez-nous sur :</span><span lang-en>Follow us on:</span>
         <a href="https://web.facebook.com/profile.php?id=61557829689735" target="_blank"><i class="fab fa-facebook-f"></i></a>
         <a href="https://www.instagram.com/qadash_tv_officiel/" target="_blank"><i class="fab fa-instagram"></i></a>
         <a href="https://www.youtube.com/@Qadash-TV" target="_blank"><i class="fab fa-youtube"></i></a>
@@ -163,7 +165,5 @@
 
     <script defer src="../main.js"></script>
     <script defer src="../scripts/app.js"></script>
-    <script defer src="../scripts/translate.js"></script>
-    <script defer src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   </body>
 </html>

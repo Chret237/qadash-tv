@@ -10,7 +10,6 @@ const urlsToCache = [
   "./styles.css",
   "./main.js",
   "./scripts/app.js",
-  "./scripts/translate.js",
   "./images/logo_qadash.jpg",
   "./images/Qadash new logo-02.png",
 ];

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
   <head>
     <!-- PWA manifest file-->
     <link rel="manifest" href="./manifest.json" />
@@ -47,20 +47,36 @@
         /></a>
       </div>
       <nav class="nav-menu">
-        <a class="nav-link active" href="#"> Accueil </a>
+        <a class="nav-link active" href="#"><span lang-fr>Accueil</span><span lang-en>Home</span></a>
         <a class="nav-link" href="./pages/documentaires.html">
-          Documentaires
+          <span lang-fr>Documentaires</span><span lang-en>Documentaries</span>
         </a>
         <a class="nav-link" href="./pages/enseignements.html">
-          Enseignements
+          <span lang-fr>Enseignements</span><span lang-en>Teachings</span>
         </a>
-        <a class="nav-link" href="./pages/livres.html"> Livres </a>
-        <a class="nav-link" href="./pages/animations.html"> Animations </a>
-        <a class="nav-link" href="#s5"> Contacts </a>
+        <a class="nav-link" href="./pages/livres.html"><span lang-fr>Livres</span><span lang-en>Books</span></a>
+        <a class="nav-link" href="./pages/animations.html"><span lang-fr>Animations</span><span lang-en>Animations</span></a>
+        <a class="nav-link" href="#s5"><span lang-fr>Contacts</span><span lang-en>Contact</span></a>
       </nav>
       <div class="language">
-        <i class="fa-solid fa-globe"></i>
-        <div id="google_translate_element"></div>
+        <div class="language-switcher" aria-label="Sélecteur de langue">
+          <button
+            class="lang-btn active"
+            id="lang-fr"
+            type="button"
+            aria-pressed="true"
+          >
+            FR
+          </button>
+          <button
+            class="lang-btn"
+            id="lang-en"
+            type="button"
+            aria-pressed="false"
+          >
+            EN
+          </button>
+        </div>
       </div>
     </header>
 
@@ -95,16 +111,15 @@
       </section>
 
       <section id="s2" class="hero">
-        <p>Sortez d'elle mon peuple...</p>
+        <p><span lang-fr>Sortez d'elle mon peuple...</span><span lang-en>Come out of her, my people...</span></p>
         <h1>
           <span> Apocalypse 18:4 </span>
           QADASH TV
         </h1>
         <hr />
         <p class="subtitle">
-          Donner de la visibilité aux actions que le Seigneur Yéhoshoua ha
-          Mashiah (Jesus-Christ) a mis dans le cœur de ses enfants pour que
-          l'Evangile soit davantage annoncé au Cameroun.
+          <span lang-fr>Donner de la visibilité aux actions que le Seigneur Yéhoshoua ha Mashiah (Jesus-Christ) a mises dans le cœur de ses enfants afin que l'Évangile soit davantage annoncé au Cameroun.</span>
+          <span lang-en>Bringing visibility to the actions that the Lord Yehoshoua ha Mashiah (Jesus Christ) has placed in the hearts of his children, so that the Gospel may be proclaimed more widely in Cameroon.</span>
         </p>
       </section>
 
@@ -112,13 +127,12 @@
         <img src="./images/Qadash new logo-02.png" alt="" />
         <div>
           <h2>
-            SIGNIFICATION & VISION
+            <span lang-fr>SIGNIFICATION & VISION</span><span lang-en>MEANING & VISION</span>
             <hr />
           </h2>
           <p>
-            Qadash signifie entre autres sanctifier, consacrer, purifier. Ce
-            site a pour seul but de promouvoir la parole véritable de YEHOSHOUA
-            (Jesus).
+            <span lang-fr>Qadash signifie entre autres sanctifier, consacrer, purifier. Ce site a pour seul but de promouvoir la parole véritable de YEHOSHOUA (Jesus).</span>
+            <span lang-en>Qadash means, among other things, to sanctify, dedicate and purify. This site exists to promote the true word of YEHOSHOUA (Jesus).</span>
           </p>
         </div>
       </section>
@@ -141,9 +155,9 @@
         >
           <div class="overlay"></div>
           <div class="content">
-            <h2>Rencontre Jeunesse</h2>
+            <h2><span lang-fr>Rencontre Jeunesse</span><span lang-en>Youth Gathering</span></h2>
             <a href="./pages/rencontre-jeunesse.html" class="btn"
-              >Découvrir +</a
+              ><span lang-fr>Découvrir +</span><span lang-en>Discover +</span></a
             >
           </div>
         </div>
@@ -154,8 +168,8 @@
         >
           <div class="overlay"></div>
           <div class="content">
-            <h2>Programme des Femmes</h2>
-            <a href="./pages/rencontre-femmes.html" class="btn">Découvrir +</a>
+            <h2><span lang-fr>Programme des Femmes</span><span lang-en>Women's Program</span></h2>
+            <a href="./pages/rencontre-femmes.html" class="btn"><span lang-fr>Découvrir +</span><span lang-en>Discover +</span></a>
           </div>
         </div>
 
@@ -171,17 +185,17 @@
 
       <section id="s5" class="contacts">
         <h2>
-          Contacts
+          <span lang-fr>Contacts</span><span lang-en>Contact</span>
           <hr />
         </h2>
         <div>
           <i class="fas fa-phone"></i>
-          <h3>Téléphone</h3>
+          <h3><span lang-fr>Téléphone</span><span lang-en>Phone</span></h3>
           <p><a href="tel:+237687782294">(+237) 687 782 294</a></p>
         </div>
         <div>
           <i class="fas fa-envelope"></i>
-          <h3>E-mail</h3>
+          <h3><span lang-fr>E-mail</span><span lang-en>Email</span></h3>
           <p>
             <a href="mailto:qadowshyeshoua@gmail.com"
               >qadowshyeshoua@gmail.com</a
@@ -196,9 +210,9 @@
     </main>
 
     <footer>
-      <p>&copy; Qadash tv 2025 - Tout droits réservés</p>
+      <p><span lang-fr>&copy; Qadash tv 2025 - Tous droits réservés</span><span lang-en>&copy; Qadash TV 2025 - All rights reserved</span></p>
       <p>
-        Suivez -nous sur :
+        <span lang-fr>Suivez-nous sur :</span><span lang-en>Follow us on:</span>
         <a
           href="https://web.facebook.com/profile.php?id=61557829689735&mibextid=ZbWKwL&_rdc=1&_rdr#"
           target="_blank"
@@ -220,10 +234,5 @@
 
     <script defer src="./main.js"></script>
     <script defer src="./scripts/app.js"></script>
-    <script defer src="./scripts/translate.js"></script>
-    <script
-      defer
-      src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
-    ></script>
   </body>
 </html>

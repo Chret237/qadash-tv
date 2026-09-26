@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
   <head>
     <!-- Lien vers le manifest PWA-->
     <link rel="manifest" href="../manifest.json" />
@@ -48,26 +48,51 @@
         /></a>
       </div>
       <nav class="nav-menu">
-        <a class="nav-link" href="../index.html"> Accueil </a>
-        <a class="nav-link" href="../pages/documentaires.html"> Documentaires </a>
-        <a class="nav-link" href="../pages/enseignements.html"> Enseignements </a>
-        <a class="nav-link active" href="#"> Livres </a>
-        <a class="nav-link" href="../pages/animations.html"> Animations </a>
-        <a class="nav-link" href="../index.html#s5"> Contacts </a>
+        <a class="nav-link" href="../index.html"><span lang-fr>Accueil</span><span lang-en>Home</span></a>
+        <a class="nav-link" href="../pages/documentaires.html">
+          <span lang-fr>Documentaires</span><span lang-en>Documentaries</span>
+        </a>
+        <a class="nav-link" href="../pages/enseignements.html">
+          <span lang-fr>Enseignements</span><span lang-en>Teachings</span>
+        </a>
+        <a class="nav-link active" href="#"><span lang-fr>Livres</span><span lang-en>Books</span></a>
+        <a class="nav-link" href="../pages/animations.html"><span lang-fr>Animations</span><span lang-en>Animations</span></a>
+        <a class="nav-link" href="../index.html#s5"><span lang-fr>Contacts</span><span lang-en>Contact</span></a>
       </nav>
       <div class="language">
-        <i class="fa-solid fa-globe"></i>
-        <div id="google_translate_element"></div>
+        <div class="language-switcher" aria-label="Sélecteur de langue">
+          <button
+            class="lang-btn active"
+            id="lang-fr"
+            type="button"
+            aria-pressed="true"
+          >
+            FR
+          </button>
+          <button
+            class="lang-btn"
+            id="lang-en"
+            type="button"
+            aria-pressed="false"
+          >
+            EN
+          </button>
+        </div>
       </div>
     </header>
 
     <main class="livres">
       <section>
         <div class="section-header">
-          <h1>Tous les Livres</h1>
+          <h1><span lang-fr>Tous les livres</span><span lang-en>All books</span></h1>
 
           <div class="filters">
-            <i class="fa-solid fa-magnifying-glass"></i><input type="text" id="bookSearch" placeholder="Nom de livre ou auteur..." />
+            <i class="fa-solid fa-magnifying-glass"></i
+            ><input
+              type="text"
+              id="bookSearch"
+              placeholder="Nom de livre ou auteur..."
+            />
 
             <select id="authorFilter">
               <option value="">Tous les auteurs</option>
@@ -79,39 +104,39 @@
           </div>
         </div>
 
-        <h2>Recommandé</h2>
+        <h2><span lang-fr>Recommandé</span><span lang-en>Recommended</span></h2>
 
         <div class="book1">
           <div class="book">
             <img src="../images/bym.jpg" alt="Bible de Yéhoshoua ha Mashiah" />
             <h3>Bible de Yéhoshoua ha Mashiah (BYM)</h3>
-            <p>Auteur: Shora KUETU</p>
-            <p style="color: #127484">Langue: Français</p>
+            <p><span lang-fr>Auteur : Shora KUETU</span><span lang-en>Author: Shora KUETU</span></p>
+            <p style="color: #127484"><span lang-fr>Langue : Français</span><span lang-en>Language: French</span></p>
             <a
               class="btn"
               href="https://www.bibledejesuschrist.org/lire.html"
               target="_blank"
-              >Lire en ligne</a
+              ><span lang-fr>Lire en ligne</span><span lang-en>Read online</span></a
             >
           </div>
         </div>
 
-        <h2>Derniers Ajouts</h2>
+        <h2><span lang-fr>Derniers ajouts</span><span lang-en>Latest additions</span></h2>
 
         <div class="book-list"></div>
 
         <div class="pagination">
-          <button id="prevPage" class="btn">Précédent</button>
-          <span id="pageInfo">Page 1</span>
-          <button id="nextPage" class="btn">Suivant</button>
+          <button id="prevPage" class="btn"><span lang-fr>Précédent</span><span lang-en>Previous</span></button>
+          <span id="pageInfo"><span lang-fr>Page 1</span><span lang-en>Page 1</span></span>
+          <button id="nextPage" class="btn"><span lang-fr>Suivant</span><span lang-en>Next</span></button>
         </div>
       </section>
     </main>
 
     <footer>
-      <p>&copy; Qadash tv 2025 - Tout droits réservés</p>
+      <p><span lang-fr>&copy; Qadash tv 2025 - Tous droits réservés</span><span lang-en>&copy; Qadash TV 2025 - All rights reserved</span></p>
       <p>
-        Suivez -nous sur :
+        <span lang-fr>Suivez-nous sur :</span><span lang-en>Follow us on:</span>
         <a
           href="https://web.facebook.com/profile.php?id=61557829689735&mibextid=ZbWKwL&_rdc=1&_rdr#"
           target="_blank"
@@ -133,8 +158,6 @@
 
     <script defer src="../main.js"></script>
     <script defer src="../scripts/app.js"></script>
-    <script defer src="../scripts/translate.js"></script>
-    <script defer src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <script defer src="../scripts/livres.js"></script>
   </body>
 </html>

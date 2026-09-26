@@ -5,6 +5,74 @@ window.onload = () => {
   }, 200);
 };
 
+const storageKey = "qadash-language";
+
+function applyLocalizedContent(languageCode) {
+  const normalized = languageCode === "en" ? "en" : "fr";
+
+  document.querySelectorAll("[lang-fr], [lang-en]").forEach((element) => {
+    element.hidden = !element.hasAttribute(`lang-${normalized}`);
+  });
+}
+
+function applyLanguageButtonState(languageCode) {
+  const normalized = languageCode === "en" ? "en" : "fr";
+  const buttons = {
+    en: document.getElementById("lang-en"),
+    fr: document.getElementById("lang-fr"),
+  };
+
+  document.documentElement.lang = normalized;
+  applyLocalizedContent(normalized);
+
+  Object.entries(buttons).forEach(([code, button]) => {
+    if (!button) return;
+
+    const isActive = code === normalized;
+    button.classList.toggle("active", isActive);
+    button.setAttribute("aria-pressed", String(isActive));
+  });
+
+  try {
+    localStorage.setItem(storageKey, normalized);
+  } catch {
+    // ignore in restricted contexts
+  }
+
+  document.dispatchEvent(
+    new CustomEvent("qadash:languagechange", {
+      detail: { language: normalized },
+    }),
+  );
+}
+
+const languageButtons = {
+  en: document.getElementById("lang-en"),
+  fr: document.getElementById("lang-fr"),
+};
+
+Object.entries(languageButtons).forEach(([code, button]) => {
+  if (!button) return;
+
+  button.addEventListener("click", () => applyLanguageButtonState(code));
+});
+
+let preferredLanguage = "fr";
+
+try {
+  preferredLanguage = localStorage.getItem(storageKey) || preferredLanguage;
+} catch {
+  preferredLanguage = "fr";
+}
+
+if (!preferredLanguage || !["fr", "en"].includes(preferredLanguage)) {
+  preferredLanguage = navigator.language?.toLowerCase().startsWith("en")
+    ? "en"
+    : "fr";
+}
+
+applyLanguageButtonState(preferredLanguage);
+
 // Gestion des liens de navigation
 document.querySelectorAll(".nav-link").forEach((link) => {
   link?.addEventListener("click", (e) => {

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
   <head>
     <!-- Lien vers le manifest PWA-->
     <link rel="manifest" href="../manifest.json" />
@@ -48,20 +48,36 @@
         /></a>
       </div>
       <nav class="nav-menu">
-        <a class="nav-link" href="../index.html"> Accueil </a>
+        <a class="nav-link" href="../index.html"><span lang-fr>Accueil</span><span lang-en>Home</span></a>
         <a class="nav-link" href="../pages/documentaires.html">
-          Documentaires
+          <span lang-fr>Documentaires</span><span lang-en>Documentaries</span>
         </a>
         <a class="nav-link" href="../pages/enseignements.html">
-          Enseignements
+          <span lang-fr>Enseignements</span><span lang-en>Teachings</span>
         </a>
-        <a class="nav-link" href="../pages/livres.html"> Livres </a>
-        <a class="nav-link active" href="#"> Animations </a>
-        <a class="nav-link" href="../index.html#s5"> Contacts </a>
+        <a class="nav-link" href="../pages/livres.html"><span lang-fr>Livres</span><span lang-en>Books</span></a>
+        <a class="nav-link active" href="#"><span lang-fr>Animations</span><span lang-en>Animations</span></a>
+        <a class="nav-link" href="../index.html#s5"><span lang-fr>Contacts</span><span lang-en>Contact</span></a>
       </nav>
       <div class="language">
-        <i class="fa-solid fa-globe"></i>
-        <div id="google_translate_element"></div>
+        <div class="language-switcher" aria-label="Sélecteur de langue">
+          <button
+            class="lang-btn active"
+            id="lang-fr"
+            type="button"
+            aria-pressed="true"
+          >
+            FR
+          </button>
+          <button
+            class="lang-btn"
+            id="lang-en"
+            type="button"
+            aria-pressed="false"
+          >
+            EN
+          </button>
+        </div>
       </div>
     </header>
 
@@ -69,13 +85,30 @@
       <!-- Dernières vidéos -->
       <section>
         <h1>
-          Dessin animé chrétien
+          <span lang-fr>Dessin animé chrétien</span><span lang-en>Christian animation</span>
           <hr />
         </h1>
         <div id="videos-animations" class="video-grid">
           <div class="video">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/21jR07AMVQo?si=GY5nmKhIDI2sL7Lj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            <p>DE L'ISLAM Å YÉHOSHOUA</p>
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/21jR07AMVQo?si=GY5nmKhIDI2sL7Lj"
+              title="YouTube video player"
+              frameborder="0"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+                web-share;
+              "
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+            <p><span lang-fr>DE L'ISLAM À YÉHOSHOUA</span><span lang-en>FROM ISLAM TO YEHOSHOUA</span></p>
           </div>
           <div class="video">
             <iframe
@@ -96,7 +129,7 @@
               referrerpolicy="strict-origin-when-cross-origin"
               allowfullscreen
             ></iframe>
-            <p>Qadash Anime : Que signifie réellement étre chrétien ?</p>
+            <p><span lang-fr>Qadash Anime : Que signifie réellement être chrétien ?</span><span lang-en>Qadash Anime: What does it really mean to be a Christian?</span></p>
           </div>
           <div class="video">
             <iframe
@@ -117,7 +150,7 @@
               referrerpolicy="strict-origin-when-cross-origin"
               allowfullscreen
             ></iframe>
-            <p>Qadash Anime : Histoire de Qayin et Abel 👶🏼👶🏼</p>
+            <p><span lang-fr>Qadash Anime : Histoire de Qayin et Abel</span><span lang-en>Qadash Anime: The story of Qayin and Abel</span></p>
           </div>
           <div class="video">
             <iframe
@@ -138,10 +171,7 @@
               referrerpolicy="strict-origin-when-cross-origin"
               allowfullscreen
             ></iframe>
-            <p>
-              PARTIE 2 : Le Seigneur honore la constance de Lisa et de sa mere
-              en convertissant son
-            </p>
+            <p><span lang-fr>PARTIE 2 : Le Seigneur honore la constance de Lisa et de sa mère en convertissant son...</span><span lang-en>PART 2: The Lord honors Lisa and her mother's perseverance by converting her...</span></p>
           </div>
           <div class="video">
             <iframe
@@ -162,7 +192,7 @@
               referrerpolicy="strict-origin-when-cross-origin"
               allowfullscreen
             ></iframe>
-            <p>BANDE ANNONCE : épisode 2 - la fermeté I animation chrétienne</p>
+            <p><span lang-fr>BANDE-ANNONCE : épisode 2 - la fermeté, animation chrétienne</span><span lang-en>TRAILER: Episode 2 - Standing firm, Christian animation</span></p>
           </div>
           <div class="video">
             <iframe
@@ -183,19 +213,16 @@
               referrerpolicy="strict-origin-when-cross-origin"
               allowfullscreen
             ></iframe>
-            <p>
-              Oü méne le mensonge ? & comment répondre aux parents ? - ÉPISODE.I
-              I dessin animé
-            </p>
+            <p><span lang-fr>Où mène le mensonge ? Comment répondre aux parents ? - ÉPISODE 1, dessin animé</span><span lang-en>Where does lying lead? How should we respond to parents? - EPISODE 1, animation</span></p>
           </div>
         </div>
       </section>
     </main>
 
     <footer>
-      <p>&copy; Qadash tv 2025 - Tout droits réservés</p>
+      <p><span lang-fr>&copy; Qadash tv 2025 - Tous droits réservés</span><span lang-en>&copy; Qadash TV 2025 - All rights reserved</span></p>
       <p>
-        Suivez -nous sur :
+        <span lang-fr>Suivez-nous sur :</span><span lang-en>Follow us on:</span>
         <a
           href="https://web.facebook.com/profile.php?id=61557829689735&mibextid=ZbWKwL&_rdc=1&_rdr#"
           target="_blank"
@@ -217,10 +244,5 @@
 
     <script defer src="../main.js"></script>
     <script defer src="../scripts/app.js"></script>
-    <script defer src="../scripts/translate.js"></script>
-    <script
-      defer
-      src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
-    ></script>
   </body>
 </html>

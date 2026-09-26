@@ -6,7 +6,30 @@ document.addEventListener("DOMContentLoaded", async () => {
   const prevBtn = document.querySelector("#prevPage");
   const nextBtn = document.querySelector("#nextPage");
   const pageInfo = document.querySelector("#pageInfo");
+  const sectionTitle = document.querySelector(".section-header h1");
+  const recommendedTitle = document.querySelector(".book1").previousElementSibling;
+  const recommendedBook = document.querySelector(".book1");
   let rechercheActive = false;
+
+  const translate = (fr, en) =>
+    document.documentElement.lang === "en" ? en : fr;
+
+  function updateInterfaceText() {
+    searchInput.placeholder = translate(
+      "Nom de livre ou auteur...",
+      "Book title or author...",
+    );
+    authorFilter.options[0].textContent = translate(
+      "Tous les auteurs",
+      "All authors",
+    );
+    langFilter.options[0].textContent = translate(
+      "Toutes les langues",
+      "All languages",
+    );
+    prevBtn.textContent = translate("Précédent", "Previous");
+    nextBtn.textContent = translate("Suivant", "Next");
+  }
 
   // Création du compteur dynamique
   const compteur = document.createElement("p");
@@ -21,6 +44,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   let livresFiltres = [];
   let currentPage = 1;
   const livresParPage = 8;
+
+  updateInterfaceText();
 
   // Fonction utilitaire pour mettre à jour l’URL
   function majURL() {
@@ -80,13 +105,17 @@ document.addEventListener("DOMContentLoaded", async () => {
     appliquerFiltres(false);
   } catch (error) {
     console.error("Erreur lors du chargement des livres :", error);
-    bookList.innerHTML = `<p style="color:red;">Impossible de charger les livres.</p>`;
+    bookList.innerHTML = `<p style="color:red;">${translate(
+      "Impossible de charger les livres.",
+      "Unable to load books.",
+    )}</p>`;
   }
 
   // --- FONCTIONS ---
 
   function afficherLivres() {
     bookList.innerHTML = "";
+    updateInterfaceText();
 
     const debut = (currentPage - 1) * livresParPage;
     const fin = debut + livresParPage;
@@ -94,32 +123,39 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // Met à jour le compteur
     const totalLivres = livresFiltres.length;
+    sectionTitle.textContent = `${translate("Tous les livres", "All books")} (${totalLivres})`;
+
     if (totalLivres === 0) {
-      compteur.textContent = "Aucun livre trouvé";
+      compteur.textContent = translate("Aucun livre trouvé", "No books found");
     } else if (rechercheActive) {
-      document.querySelector("h2").textContent = ''
-      document.querySelector(".book1").innerHTML = "";
-      compteur.textContent = `${totalLivres} livre${
-        totalLivres > 1 ? "s" : ""
-      } trouvé${totalLivres > 1 ? "s" : ""}`;
+      recommendedTitle.textContent = "";
+      recommendedBook.innerHTML = "";
+      compteur.textContent = translate(
+        `${totalLivres} livre${totalLivres > 1 ? "s" : ""} trouvé${
+          totalLivres > 1 ? "s" : ""
+        }`,
+        `${totalLivres} book${totalLivres > 1 ? "s" : ""} found`,
+      );
     } else {
       compteur.textContent = "";
-      document.querySelector("h2").textContent = 'Recommandé';
-      document.querySelector(".book1").innerHTML = `<div class="book">
+      recommendedTitle.textContent = translate("Recommandé", "Recommended");
+      recommendedBook.innerHTML = `<div class="book">
             <img src="../images/bym.jpg" alt="Bible de Yéhoshoua ha Mashiah" />
             <h3>
               Bible de Yéhoshoua ha Mashiah (BYM)
             </h3>
-            <p>Auteur: Shora KUETU</p>
-            <p style="color: #127484;">Langue: Français</p>
-            <a class="btn" href="https://www.bibledejesuschrist.org/lire.html" target="_blank" >Lire en ligne</a>
+            <p>${translate("Auteur", "Author")}: Shora KUETU</p>
+            <p style="color: #127484;">${translate("Langue", "Language")}: ${translate("Français", "French")}</p>
+            <a class="btn" href="https://www.bibledejesuschrist.org/lire.html" target="_blank" >${translate("Lire en ligne", "Read online")}</a>
           </div>`;
-      document.querySelector("h1").textContent = `Tous les Livres (${totalLivres})`;
     }
 
 
     if (pageLivres.length === 0) {
-      bookList.innerHTML = `<p style="color:#DE8717;">Aucun résultat pour ces critères.</p>`;
+      bookList.innerHTML = `<p style="color:#DE8717;">${translate(
+        "Aucun résultat pour ces critères.",
+        "No results for these criteria.",
+      )}</p>`;
       pageInfo.textContent = "Page 0";
       return;
     }
@@ -128,11 +164,11 @@ document.addEventListener("DOMContentLoaded", async () => {
       const book = document.createElement("div");
       book.classList.add("book");
       book.innerHTML = `
-        <img src="${livre.src}" alt="image du livre ${livre.titre}">
+        <img src="${livre.src}" alt="${translate("Image du livre", "Book cover")}: ${livre.titre}">
         <h3>${livre.titre}</h3>
-        <p>Auteur: ${livre.auteur}</p>
-        <p style="font-size:0.85rem;color:#127484;">Langue: ${livre.langue}</p>
-        <a href="${livre.lien}" class="btn" target="_blank">Ouvrir</a>
+        <p>${translate("Auteur", "Author")}: ${livre.auteur}</p>
+        <p style="font-size:0.85rem;color:#127484;">${translate("Langue", "Language")}: ${livre.langue}</p>
+        <a href="${livre.lien}" class="btn" target="_blank">${translate("Ouvrir", "Open")}</a>
       `;
       bookList.appendChild(book);
     });
@@ -183,6 +219,10 @@ document.addEventListener("DOMContentLoaded", async () => {
   langFilter.addEventListener("change", () => {
     currentPage = 1;
     appliquerFiltres();
+  });
+
+  document.addEventListener("qadash:languagechange", () => {
+    afficherLivres();
   });
 
   prevBtn.addEventListener("click", () => {
