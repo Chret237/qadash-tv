@@ -7,7 +7,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   const nextBtn = document.querySelector("#nextPage");
   const pageInfo = document.querySelector("#pageInfo");
   const sectionTitle = document.querySelector(".section-header h1");
-  const recommendedTitle = document.querySelector(".book1").previousElementSibling;
+  const recommendedTitle =
+    document.querySelector(".book1").previousElementSibling;
   const recommendedBook = document.querySelector(".book1");
   let rechercheActive = false;
 
@@ -31,6 +32,24 @@ document.addEventListener("DOMContentLoaded", async () => {
     nextBtn.textContent = translate("Suivant", "Next");
   }
 
+  function showSkeletonCards(count = 8) {
+    bookList.innerHTML = Array.from(
+      { length: count },
+      () => `
+      <article class="skeleton-card" aria-busy="true" aria-label="${translate(
+        "Chargement des livres",
+        "Loading books",
+      )}">
+        <div class="skeleton-block skeleton-figure"></div>
+        <div class="skeleton-line"></div>
+        <div class="skeleton-line short"></div>
+        <div class="skeleton-line small"></div>
+        <div class="skeleton-block skeleton-button"></div>
+      </article>
+    `,
+    ).join("");
+  }
+
   // Création du compteur dynamique
   const compteur = document.createElement("p");
   compteur.id = "bookCount";
@@ -43,6 +62,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   let livres = [];
   let livresFiltres = [];
   let currentPage = 1;
+  let catalogLoaded = false;
+  let loadingFailed = false;
   const livresParPage = 8;
 
   updateInterfaceText();
@@ -69,7 +90,27 @@ document.addEventListener("DOMContentLoaded", async () => {
     };
   }
 
+  function showLoadError() {
+    bookList.innerHTML = `<p style="color:red;">${translate(
+      "Impossible de charger les livres.",
+      "Unable to load books.",
+    )}</p>`;
+  }
+
+  document.addEventListener("qadash:languagechange", () => {
+    updateInterfaceText();
+
+    if (loadingFailed) {
+      showLoadError();
+      return;
+    }
+
+    if (catalogLoaded) afficherLivres();
+  });
+
   // --- Charger les livres ---
+  showSkeletonCards();
+
   try {
     const response = await fetch("../data/livres.json");
     livres = await response.json();
@@ -102,13 +143,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     langFilter.value = langue;
     currentPage = page;
 
+    catalogLoaded = true;
     appliquerFiltres(false);
   } catch (error) {
     console.error("Erreur lors du chargement des livres :", error);
-    bookList.innerHTML = `<p style="color:red;">${translate(
-      "Impossible de charger les livres.",
-      "Unable to load books.",
-    )}</p>`;
+    loadingFailed = true;
+    showLoadError();
   }
 
   // --- FONCTIONS ---
@@ -149,7 +189,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             <a class="btn" href="https://www.bibledejesuschrist.org/lire.html" target="_blank" >${translate("Lire en ligne", "Read online")}</a>
           </div>`;
     }
-
 
     if (pageLivres.length === 0) {
       bookList.innerHTML = `<p style="color:#DE8717;">${translate(
@@ -199,7 +238,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const totalPages = Math.ceil(livresFiltres.length / livresParPage);
     if (currentPage > totalPages) currentPage = 1;
-    
+
     afficherLivres();
     if (maj) majURL();
   }
@@ -219,10 +258,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   langFilter.addEventListener("change", () => {
     currentPage = 1;
     appliquerFiltres();
-  });
-
-  document.addEventListener("qadash:languagechange", () => {
-    afficherLivres();
   });
 
   prevBtn.addEventListener("click", () => {
