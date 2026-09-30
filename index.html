@@ -33,9 +33,15 @@
   </head>
   <body>
     <header class="nav-bar">
-      <div class="burger">
-        <i class="fas fa-bars"></i>
-      </div>
+      <button
+        class="burger"
+        type="button"
+        aria-label="Ouvrir le menu"
+        aria-expanded="false"
+        aria-controls="nav-menu"
+      >
+        <i class="fas fa-bars" aria-hidden="true"></i>
+      </button>
       <div class="logo">
         <a href="#"
           ><img
@@ -46,17 +52,43 @@
             width="164"
         /></a>
       </div>
-      <nav class="nav-menu">
-        <a class="nav-link active" href="#"><span lang-fr>Accueil</span><span lang-en>Home</span></a>
-        <a class="nav-link" href="./pages/documentaires.html">
+      <nav class="nav-menu" id="nav-menu">
+        <div class="nav-menu-brand">
+          <a href="./index.html" aria-label="Qadash TV - Accueil">
+            <img src="./images/logo_qadash.jpg" alt="Qadash TV" />
+          </a>
+        </div>
+        <a class="nav-link active" href="#"
+          ><span lang-fr>Accueil</span><span lang-en>Home</span></a
+        >
+        <!-- <a class="nav-link" href="./pages/documentaires.html">
           <span lang-fr>Documentaires</span><span lang-en>Documentaries</span>
-        </a>
+        </a> -->
         <a class="nav-link" href="./pages/enseignements.html">
           <span lang-fr>Enseignements</span><span lang-en>Teachings</span>
         </a>
-        <a class="nav-link" href="./pages/livres.html"><span lang-fr>Livres</span><span lang-en>Books</span></a>
-        <a class="nav-link" href="./pages/animations.html"><span lang-fr>Animations</span><span lang-en>Animations</span></a>
-        <a class="nav-link" href="#s5"><span lang-fr>Contacts</span><span lang-en>Contact</span></a>
+        <a class="nav-link" href="./pages/livres.html"
+          ><span lang-fr>Livres</span><span lang-en>Books</span></a
+        >
+        <a class="nav-link" href="./pages/animations.html"
+          ><span lang-fr>Animations</span><span lang-en>Animations</span></a
+        >
+        <a class="nav-link" href="#s5"
+          ><span lang-fr>Contacts</span><span lang-en>Contact</span></a
+        >
+        <div class="nav-menu-footer">
+          <span class="nav-menu-social-label" lang-fr>Suivez-nous</span>
+          <span class="nav-menu-social-label" lang-en>Follow us</span>
+          <a
+            href="https://www.youtube.com/@Qadash-TV"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="YouTube @Qadash-TV"
+          >
+            <i class="fab fa-youtube" aria-hidden="true"></i>
+            <span>@Qadash-TV</span>
+          </a>
+        </div>
       </nav>
       <div class="language">
         <div class="language-switcher" aria-label="Sélecteur de langue">
@@ -111,15 +143,26 @@
       </section>
 
       <section id="s2" class="hero">
-        <p><span lang-fr>Sortez d'elle mon peuple...</span><span lang-en>Come out of her, my people...</span></p>
+        <p>
+          <span lang-fr>Sortez d'elle mon peuple...</span
+          ><span lang-en>Come out of her, my people...</span>
+        </p>
         <h1>
           <span> Apocalypse 18:4 </span>
           QADASH TV
         </h1>
         <hr />
         <p class="subtitle">
-          <span lang-fr>Donner de la visibilité aux actions que le Seigneur Yéhoshoua ha Mashiah (Jesus-Christ) a mises dans le cœur de ses enfants afin que l'Évangile soit davantage annoncé au Cameroun.</span>
-          <span lang-en>Bringing visibility to the actions that the Lord Yehoshoua ha Mashiah (Jesus Christ) has placed in the hearts of his children, so that the Gospel may be proclaimed more widely in Cameroon.</span>
+          <span lang-fr
+            >Donner de la visibilité aux actions que le Seigneur Yéhoshoua ha
+            Mashiah (Jesus-Christ) a mises dans le cœur de ses enfants afin que
+            l'Évangile soit davantage annoncé au Cameroun.</span
+          >
+          <span lang-en
+            >Bringing visibility to the actions that the Lord Yehoshoua ha
+            Mashiah (Jesus Christ) has placed in the hearts of his children, so
+            that the Gospel may be proclaimed more widely in Cameroon.</span
+          >
         </p>
       </section>
 
@@ -127,12 +170,21 @@
         <img src="./images/Qadash new logo-02.png" alt="" />
         <div>
           <h2>
-            <span lang-fr>SIGNIFICATION & VISION</span><span lang-en>MEANING & VISION</span>
+            <span lang-fr>SIGNIFICATION & VISION</span
+            ><span lang-en>MEANING & VISION</span>
             <hr />
           </h2>
           <p>
-            <span lang-fr>Qadash signifie entre autres sanctifier, consacrer, purifier. Ce site a pour seul but de promouvoir la parole véritable de YEHOSHOUA (Jesus).</span>
-            <span lang-en>Qadash means, among other things, to sanctify, dedicate and purify. This site exists to promote the true word of YEHOSHOUA (Jesus).</span>
+            <span lang-fr
+              >Qadash signifie entre autres sanctifier, consacrer, purifier. Ce
+              site a pour seul but de promouvoir la parole véritable de
+              YEHOSHOUA (Jesus).</span
+            >
+            <span lang-en
+              >Qadash means, among other things, to sanctify, dedicate and
+              purify. This site exists to promote the true word of YEHOSHOUA
+              (Jesus).</span
+            >
           </p>
         </div>
       </section>
@@ -155,9 +207,13 @@
         >
           <div class="overlay"></div>
           <div class="content">
-            <h2><span lang-fr>Rencontre Jeunesse</span><span lang-en>Youth Gathering</span></h2>
+            <h2>
+              <span lang-fr>Rencontre Jeunesse</span
+              ><span lang-en>Youth Gathering</span>
+            </h2>
             <a href="./pages/rencontre-jeunesse.html" class="btn"
-              ><span lang-fr>Découvrir +</span><span lang-en>Discover +</span></a
+              ><span lang-fr>Découvrir +</span
+              ><span lang-en>Discover +</span></a
             >
           </div>
         </div>
@@ -168,8 +224,14 @@
         >
           <div class="overlay"></div>
           <div class="content">
-            <h2><span lang-fr>Programme des Femmes</span><span lang-en>Women's Program</span></h2>
-            <a href="./pages/rencontre-femmes.html" class="btn"><span lang-fr>Découvrir +</span><span lang-en>Discover +</span></a>
+            <h2>
+              <span lang-fr>Programme des Femmes</span
+              ><span lang-en>Women's Program</span>
+            </h2>
+            <a href="./pages/rencontre-femmes.html" class="btn"
+              ><span lang-fr>Découvrir +</span
+              ><span lang-en>Discover +</span></a
+            >
           </div>
         </div>
 
@@ -210,7 +272,10 @@
     </main>
 
     <footer>
-      <p><span lang-fr>&copy; Qadash tv 2025 - Tous droits réservés</span><span lang-en>&copy; Qadash TV 2025 - All rights reserved</span></p>
+      <p>
+        <span lang-fr>&copy; Qadash tv 2025 - Tous droits réservés</span
+        ><span lang-en>&copy; Qadash TV 2025 - All rights reserved</span>
+      </p>
       <p>
         <span lang-fr>Suivez-nous sur :</span><span lang-en>Follow us on:</span>
         <a

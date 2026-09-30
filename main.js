@@ -73,30 +73,51 @@ if (!preferredLanguage || !["fr", "en"].includes(preferredLanguage)) {
 
 applyLanguageButtonState(preferredLanguage);
 
+// Gestion du menu burger pour mobile
+const burger = document.querySelector(".burger");
+const burgerIcon = burger?.querySelector("i");
+const navMenu = document.querySelector(".nav-menu");
+
+function setMenuOpen(isOpen) {
+  if (!burger || !burgerIcon || !navMenu) return;
+
+  burger.setAttribute("aria-expanded", String(isOpen));
+  burger.setAttribute(
+    "aria-label",
+    isOpen ? "Fermer le menu" : "Ouvrir le menu",
+  );
+  burgerIcon.classList.toggle("fa-bars", !isOpen);
+  burgerIcon.classList.toggle("fa-times", isOpen);
+  navMenu.classList.toggle("active", isOpen);
+  document.body.classList.toggle("menu-open", isOpen);
+}
+
+burger?.addEventListener("click", () => {
+  setMenuOpen(!navMenu?.classList.contains("active"));
+});
+
 // Gestion des liens de navigation
 document.querySelectorAll(".nav-link").forEach((link) => {
-  link?.addEventListener("click", (e) => {
+  link.addEventListener("click", (e) => {
     const parent = e.currentTarget.parentElement;
     parent?.querySelector(".active")?.classList.remove("active");
     e.currentTarget.classList.add("active");
+    setMenuOpen(false);
   });
 });
 
-// Gestion du menu burger pour mobile
-const burger = document.querySelector(".burger i");
-const navMenu = document.querySelector(".nav-menu");
+window.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && navMenu?.classList.contains("active")) {
+    setMenuOpen(false);
+    burger?.focus();
+  }
+});
 
-if (burger && navMenu) {
-  burger.addEventListener("click", () => {
-    burger.classList.toggle("fa-times");
-    navMenu.classList.toggle("active");
-  });
-}
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 1225) setMenuOpen(false);
+});
 
-window.onscroll = () => {
-  burger?.classList.remove("fa-times");
-  navMenu?.classList.remove("active");
-};
+window.addEventListener("scroll", () => setMenuOpen(false));
 
 /* ===========================
    QADASH MASTER-LIKE SLIDERS
