@@ -116,14 +116,132 @@ body {
     line-height: 1.6;
 }
 
-h1,
-h2 {
+h1 span,
+h2 span {
     font-weight: 700;
 }
 
 a {
     text-decoration: none;
     color: var(--accent);
+}
+
+qadash-site-header,
+qadash-site-footer {
+    display: contents;
+}
+
+.page-skeleton {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    overflow-y: auto;
+    background: var(--white);
+    opacity: 1;
+    transition: opacity 250ms ease;
+}
+
+.page-skeleton--hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.page-skeleton__header,
+.page-skeleton__content {
+    width: min(100% - 2rem, 1120px);
+    margin-inline: auto;
+}
+
+.page-skeleton__header {
+    height: 85px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-bottom: 1px solid #edf0f2;
+}
+
+.page-skeleton__brand,
+.page-skeleton__nav,
+.page-skeleton__title,
+.page-skeleton__line,
+.page-skeleton__item {
+    display: block;
+    border-radius: 8px;
+}
+
+.page-skeleton__brand {
+    width: 164px;
+    height: 48px;
+    margin-right: auto;
+}
+
+.page-skeleton__nav {
+    width: 112px;
+    height: 16px;
+}
+
+.page-skeleton__nav--short {
+    width: 72px;
+}
+
+.page-skeleton__content {
+    padding-block: clamp(2rem, 7vh, 5rem);
+}
+
+.page-skeleton__title {
+    width: min(52%, 360px);
+    height: 36px;
+    margin-bottom: 1.5rem;
+}
+
+.page-skeleton__line {
+    width: min(78%, 680px);
+    height: 14px;
+    margin-bottom: 0.75rem;
+}
+
+.page-skeleton__line--short {
+    width: min(55%, 460px);
+    margin-bottom: 2.5rem;
+}
+
+.page-skeleton__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+}
+
+.page-skeleton__item {
+    min-height: 220px;
+    border-radius: 12px;
+}
+
+@media (max-width: 700px) {
+    .page-skeleton__header {
+        height: 72px;
+    }
+
+    .page-skeleton__nav {
+        display: none;
+    }
+
+    .page-skeleton__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.75rem;
+    }
+
+    .page-skeleton__item {
+        min-height: 160px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .page-skeleton,
+    .page-skeleton .skeleton {
+        animation: none;
+        transition: none;
+    }
 }
 
 .skeleton,

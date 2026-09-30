@@ -1,9 +1,188 @@
-window.onload = () => {
-  document.body.style.opacity = "0.5";
-  setTimeout(() => {
-    document.body.style.opacity = "1";
-  }, 200);
-};
+function showPageSkeleton() {
+  const startedAt = performance.now();
+  const skeleton = document.createElement("div");
+  skeleton.className = "page-skeleton";
+  skeleton.setAttribute("role", "status");
+  skeleton.setAttribute("aria-label", "Chargement de la page");
+  skeleton.innerHTML = `
+    <div class="page-skeleton__header" aria-hidden="true">
+      <span class="page-skeleton__brand skeleton"></span>
+      <span class="page-skeleton__nav skeleton"></span>
+      <span class="page-skeleton__nav page-skeleton__nav--short skeleton"></span>
+    </div>
+    <div class="page-skeleton__content" aria-hidden="true">
+      <span class="page-skeleton__title skeleton"></span>
+      <span class="page-skeleton__line skeleton"></span>
+      <span class="page-skeleton__line page-skeleton__line--short skeleton"></span>
+      <div class="page-skeleton__grid">
+        <span class="page-skeleton__item skeleton"></span>
+        <span class="page-skeleton__item skeleton"></span>
+        <span class="page-skeleton__item skeleton"></span>
+      </div>
+    </div>
+  `;
+
+  document.body.setAttribute("aria-busy", "true");
+  document.body.appendChild(skeleton);
+
+  let isDismissed = false;
+  function dismissSkeleton() {
+    if (isDismissed) return;
+    isDismissed = true;
+
+    const minimumDisplayTime = 250;
+    const elapsed = performance.now() - startedAt;
+    window.setTimeout(
+      () => {
+        skeleton.classList.add("page-skeleton--hidden");
+        document.body.removeAttribute("aria-busy");
+        window.setTimeout(() => skeleton.remove(), 250);
+      },
+      Math.max(0, minimumDisplayTime - elapsed),
+    );
+  }
+
+  window.addEventListener("load", dismissSkeleton, { once: true });
+  window.setTimeout(dismissSkeleton, 1200);
+}
+
+showPageSkeleton();
+
+customElements.define(
+  "qadash-site-header",
+  class extends HTMLElement {
+    connectedCallback() {
+      const isNestedPage = window.location.pathname.includes("/pages/");
+      const base = isNestedPage ? "../" : "./";
+      const pageName = window.location.pathname.split("/").pop();
+
+      if (this.dataset.variant === "compact") {
+        let backHref = `${base}index.html#events`;
+        if (pageName.startsWith("galerie-femmes-")) {
+          backHref = `${base}pages/rencontre-femmes.html`;
+        } else if (pageName.startsWith("galerie-jeunesse-")) {
+          backHref = `${base}pages/rencontre-jeunesse.html`;
+        }
+
+        this.innerHTML = `
+          <header class="nav-bar">
+            <div class="logo">
+              <a href="${base}index.html" aria-label="Qadash TV - Accueil">
+                <img src="${base}images/logo_qadash.jpg" alt="Qadash TV" height="70" />
+              </a>
+              <a href="${backHref}" class="back-link" aria-label="Retour">
+                <i class="fa fa-chevron-left" aria-hidden="true"></i>
+              </a>
+            </div>
+            <div class="language gallery-language">
+              <div class="language-switcher" aria-label="Sélecteur de langue">
+                <button class="lang-btn active" id="lang-fr" type="button" aria-pressed="true">FR</button>
+                <button class="lang-btn" id="lang-en" type="button" aria-pressed="false">EN</button>
+              </div>
+            </div>
+          </header>
+        `;
+        return;
+      }
+
+      const navItems = [
+        { href: `${base}index.html`, fr: "Accueil", en: "Home" },
+        {
+          href: `${base}pages/enseignements.html`,
+          fr: "Enseignements",
+          en: "Teachings",
+        },
+        { href: `${base}pages/livres.html`, fr: "Livres", en: "Books" },
+        {
+          href: `${base}pages/animations.html`,
+          fr: "Animations",
+          en: "Animations",
+        },
+        {
+          href: pageName === "index.html" ? "#s5" : `${base}index.html#s5`,
+          fr: "Contacts",
+          en: "Contact",
+        },
+      ];
+      const normalizePath = (path) =>
+        path.replace(/\/index\.html$/, "").replace(/\/$/, "") || "/";
+      const currentPath = normalizePath(window.location.pathname);
+      const navLinks = navItems
+        .map((item) => {
+          const isCurrent =
+            item.fr !== "Contacts" &&
+            normalizePath(new URL(item.href, window.location.href).pathname) ===
+              currentPath;
+          return `
+            <a class="nav-link${isCurrent ? " active" : ""}" href="${item.href}"${
+              isCurrent ? ' aria-current="page"' : ""
+            }>
+              <span lang-fr>${item.fr}</span><span lang-en>${item.en}</span>
+            </a>
+          `;
+        })
+        .join("");
+
+      this.innerHTML = `
+        <header class="nav-bar">
+          <button class="burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-menu">
+            <i class="fas fa-bars" aria-hidden="true"></i>
+          </button>
+          <div class="logo">
+            <a href="${base}index.html" aria-label="Qadash TV - Accueil">
+              <img src="${base}images/logo_qadash.jpg" alt="Qadash TV" height="79" width="164" />
+            </a>
+          </div>
+          <nav class="nav-menu" id="nav-menu">
+            <div class="nav-menu-brand">
+              <a href="${base}index.html" aria-label="Qadash TV - Accueil">
+                <img src="${base}images/logo_qadash.jpg" alt="Qadash TV" />
+              </a>
+            </div>
+            ${navLinks}
+            <div class="nav-menu-footer">
+              <span class="nav-menu-social-label" lang-fr>Suivez-nous</span>
+              <span class="nav-menu-social-label" lang-en>Follow us</span>
+              <a href="https://www.youtube.com/@Qadash-TV" target="_blank" rel="noopener noreferrer" aria-label="YouTube @Qadash-TV">
+                <i class="fab fa-youtube" aria-hidden="true"></i>
+                <span>@Qadash-TV</span>
+              </a>
+            </div>
+          </nav>
+          <div class="language">
+            <div class="language-switcher" aria-label="Sélecteur de langue">
+              <button class="lang-btn active" id="lang-fr" type="button" aria-pressed="true">FR</button>
+              <button class="lang-btn" id="lang-en" type="button" aria-pressed="false">EN</button>
+            </div>
+          </div>
+        </header>
+      `;
+    }
+  },
+);
+
+customElements.define(
+  "qadash-site-footer",
+  class extends HTMLElement {
+    connectedCallback() {
+      this.innerHTML = `
+        <footer>
+          <p>
+            <span lang-fr>&copy; Qadash tv 2025 - Tous droits réservés</span>
+            <span lang-en>&copy; Qadash TV 2025 - All rights reserved</span>
+          </p>
+          <p>
+            <span lang-fr>Suivez-nous sur :</span><span lang-en>Follow us on:</span>
+            <a href="https://web.facebook.com/profile.php?id=61557829689735" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+            <a href="https://www.instagram.com/qadash_tv_officiel/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+            <a href="https://www.youtube.com/@Qadash-TV" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+            <a href="https://www.whatsapp.com/channel/0029VaDmKpv8aKvDNdPlTP1R" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+          </p>
+        </footer>
+      `;
+    }
+  },
+);
 
 const storageKey = "qadash-language";
 
