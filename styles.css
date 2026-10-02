@@ -1784,6 +1784,7 @@ footer a {
 .gallery-header h1 {
     flex-grow: 1;
     text-align: center;
+    color: #0d5d6d;
 }
 
 .gallery-grid {

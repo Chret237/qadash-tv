@@ -313,6 +313,27 @@ function qadashSlider(sectionSelector, slideSelector) {
   let index = 0;
   let timer;
 
+  if (section.matches(".announcements-slider")) {
+    const mobileQuery = window.matchMedia("(max-width: 600px)");
+
+    function updateAnnouncementImages() {
+      slides.forEach((slide) => {
+        const desktopSrc =
+          slide.dataset.desktopSrc || getBackgroundImageUrl(slide);
+        if (!desktopSrc) return;
+
+        slide.dataset.desktopSrc = desktopSrc;
+        const src = mobileQuery.matches
+          ? slide.dataset.mobileSrc || desktopSrc
+          : desktopSrc;
+        slide.style.backgroundImage = `url("${src}")`;
+      });
+    }
+
+    updateAnnouncementImages();
+    mobileQuery.addEventListener("change", updateAnnouncementImages);
+  }
+
   function showSlide(i) {
     slides.forEach((s, idx) => {
       s.classList.remove("active", "prev", "next");
@@ -424,10 +445,19 @@ function openImageLightbox(src, alt = "Image agrandie") {
 
   if (!src) return;
 
-  img.src = src;
+  img.setAttribute("src", src);
   img.alt = alt;
   lightbox.classList.add("active");
   document.body.style.overflow = "hidden";
+}
+
+function openAnnouncementLightbox(slide) {
+  const src = getBackgroundImageUrl(slide);
+  if (!src) return;
+
+  const title =
+    slide.querySelector("h2")?.textContent || "Image de mise en avant";
+  openImageLightbox(src, title);
 }
 
 function bindImageLightbox() {
@@ -445,16 +475,44 @@ function bindImageLightbox() {
 
   document.querySelectorAll(".announcements-slide").forEach((slide) => {
     slide.style.cursor = "pointer";
+    let touchStart = null;
+
+    slide.addEventListener(
+      "touchstart",
+      (event) => {
+        const touch = event.changedTouches[0];
+        touchStart = { x: touch.clientX, y: touch.clientY };
+      },
+      { passive: true },
+    );
+
+    slide.addEventListener(
+      "touchend",
+      (event) => {
+        const touch = event.changedTouches[0];
+        if (
+          !touchStart ||
+          Math.hypot(
+            touch.clientX - touchStart.x,
+            touch.clientY - touchStart.y,
+          ) > 10
+        ) {
+          touchStart = null;
+          return;
+        }
+
+        event.preventDefault();
+        event.stopPropagation();
+        openAnnouncementLightbox(slide);
+        touchStart = null;
+      },
+      { passive: false },
+    );
+
     slide.addEventListener("click", (event) => {
       event.preventDefault();
       event.stopPropagation();
-
-      const src = getBackgroundImageUrl(slide);
-      if (!src) return;
-
-      const title =
-        slide.querySelector("h2")?.textContent || "Image de mise en avant";
-      openImageLightbox(src, title);
+      openAnnouncementLightbox(slide);
     });
   });
 }
