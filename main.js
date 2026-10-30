@@ -140,6 +140,10 @@ customElements.define(
               </a>
             </div>
             ${navLinks}
+            <button class="nav-share" type="button">
+              <i class="fas fa-share-nodes" aria-hidden="true"></i>
+              <span lang-fr>Partager</span><span lang-en>Share</span>
+            </button>
             <div class="nav-menu-footer">
               <span class="nav-menu-social-label" lang-fr>Suivez-nous</span>
               <span class="nav-menu-social-label" lang-en>Follow us</span>
@@ -252,10 +256,154 @@ if (!preferredLanguage || !["fr", "en"].includes(preferredLanguage)) {
 
 applyLanguageButtonState(preferredLanguage);
 
+const installDismissedKey = "qadash-install-dismissed";
+let deferredInstallPrompt = null;
+
+function isStandaloneMode() {
+  return (
+    window.matchMedia("(display-mode: standalone)").matches ||
+    window.navigator.standalone === true
+  );
+}
+
+function showInstallPrompt() {
+  if (isStandaloneMode() || document.getElementById("qadash-install-prompt")) {
+    return;
+  }
+
+  const siteRoot = window.location.pathname.includes("/pages/") ? "../" : "./";
+  const prompt = document.createElement("aside");
+  prompt.id = "qadash-install-prompt";
+  prompt.className = "install-prompt";
+  prompt.setAttribute("role", "dialog");
+  prompt.setAttribute("aria-labelledby", "install-prompt-title");
+  prompt.innerHTML = `
+    <button class="install-prompt__close" type="button" aria-label="Fermer">&times;</button>
+    <img class="install-prompt__icon" src="${siteRoot}icons/icon-192x192.png" alt="" />
+    <div class="install-prompt__content">
+      <h2 id="install-prompt-title">Installer Qadash TV</h2>
+      <p>Ajoutez l'application à votre écran d'accueil pour plus d'accessibilité&nbsp;!</p>
+      <button class="install-prompt__action" type="button">
+        <i class="fas fa-download" aria-hidden="true"></i>
+        <span>Installer maintenant</span>
+      </button>
+    </div>
+  `;
+
+  const closePrompt = () => {
+    prompt.classList.add("install-prompt--closing");
+    window.setTimeout(() => prompt.remove(), 220);
+  };
+
+  prompt
+    .querySelector(".install-prompt__close")
+    .addEventListener("click", () => {
+      try {
+        localStorage.setItem(installDismissedKey, String(Date.now()));
+      } catch {
+        // ignore in restricted contexts
+      }
+      closePrompt();
+    });
+
+  prompt
+    .querySelector(".install-prompt__action")
+    .addEventListener("click", async () => {
+      if (!deferredInstallPrompt) return;
+
+      deferredInstallPrompt.prompt();
+      const choice = await deferredInstallPrompt.userChoice;
+      deferredInstallPrompt = null;
+
+      if (choice.outcome === "accepted") closePrompt();
+    });
+
+  document.body.appendChild(prompt);
+  requestAnimationFrame(() => prompt.classList.add("install-prompt--visible"));
+}
+
+window.addEventListener("beforeinstallprompt", (event) => {
+  event.preventDefault();
+  deferredInstallPrompt = event;
+
+  let wasDismissedRecently = false;
+  try {
+    const dismissedAt = Number(localStorage.getItem(installDismissedKey));
+    wasDismissedRecently = dismissedAt > Date.now() - 7 * 24 * 60 * 60 * 1000;
+  } catch {
+    // ignore in restricted contexts
+  }
+
+  if (!wasDismissedRecently) showInstallPrompt();
+});
+
+window.addEventListener("appinstalled", () => {
+  deferredInstallPrompt = null;
+  document.getElementById("qadash-install-prompt")?.remove();
+});
+
 // Gestion du menu burger pour mobile
 const burger = document.querySelector(".burger");
 const burgerIcon = burger?.querySelector("i");
 const navMenu = document.querySelector(".nav-menu");
+const shareButton = document.querySelector(".nav-share");
+
+async function shareCurrentPage() {
+  const shareData = {
+    title: document.title,
+    text: "Découvrez Qadash TV",
+    url: window.location.href,
+  };
+  let feedback = { fr: "Partagé !", en: "Shared!" };
+
+  try {
+    if (navigator.share) {
+      await navigator.share(shareData);
+    } else if (navigator.clipboard) {
+      await navigator.clipboard.writeText(shareData.url);
+      feedback = { fr: "Lien copié !", en: "Link copied!" };
+    } else {
+      const input = document.createElement("textarea");
+      input.value = shareData.url;
+      input.setAttribute("readonly", "true");
+      input.style.position = "fixed";
+      input.style.opacity = "0";
+      document.body.appendChild(input);
+      input.select();
+      document.execCommand("copy");
+      input.remove();
+      feedback = { fr: "Lien copié !", en: "Link copied!" };
+    }
+
+    const labels = {
+      fr: shareButton?.querySelector("span[lang-fr]"),
+      en: shareButton?.querySelector("span[lang-en]"),
+    };
+    const previousLabels = Object.fromEntries(
+      Object.entries(labels).map(([language, label]) => [
+        language,
+        label?.textContent,
+      ]),
+    );
+
+    Object.entries(labels).forEach(([language, label]) => {
+      if (label) label.textContent = feedback[language];
+    });
+
+    if (Object.values(labels).some(Boolean)) {
+      window.setTimeout(() => {
+        Object.entries(labels).forEach(([language, label]) => {
+          if (label) label.textContent = previousLabels[language];
+        });
+      }, 1800);
+    }
+  } catch (error) {
+    if (error.name !== "AbortError")
+      console.error("Partage impossible :", error);
+  }
+}
+
+shareButton?.addEventListener("click", shareCurrentPage);
 
 function setMenuOpen(isOpen) {
   if (!burger || !burgerIcon || !navMenu) return;
